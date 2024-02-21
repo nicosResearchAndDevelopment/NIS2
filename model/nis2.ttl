@@ -1,0 +1,434 @@
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix org:     <http://www.w3.org/ns/org#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix profile: <http://www.w3.org/ns/dx/prof/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role:    <http://www.w3.org/ns/dx/prof/role/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:    <http://purl.org/vocab/vann/> .
+@prefix voaf:    <http://purl.org/vocommons/voaf#> .
+@prefix void:    <http://rdfs.org/ns/void#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:     <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix entity:  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix nis2:    <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#> .
+
+<https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#>
+    a                             voaf:Vocabulary ;
+    a                             owl:Ontology ;
+    skos:prefLabel                "European Network and Information Security legislation, NIS2"^^xsd:string ;
+    rdfs:label                    "European Network and Information Security legislation, NIS2"@en ;
+    dct:title                     "Model for NIS2"@en ;
+    dct:description               """DIRECTIVE (EU) 2022/2555 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 14 December 2022 on measures for a high common level of cybersecurity across the Union, amending Regulation (EU) No 910/2014 and Directive (EU) 2018/1972, and rep."""@en ;
+## TODO : cc:license                    <> ;
+    dct:creator                   <https://eur-lex.europa.eu/> ;
+    dct:publisher                 <https://eur-lex.europa.eu/> ;
+    dct:created                   "2022-12-27"^^xsd:date ;
+    ## TODO: dct:modified                  {{now.date}} ;
+    owl:versionInfo               "2.0.0" ;
+    ## TODO: owl:versionInfo               {{version.ontology}} ;
+    vann:preferredNamespaceUri    "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#" ;
+    vann:preferredNamespacePrefix "nis2:" ;
+    void:vocabulary               vann:, void:, voaf:, dct: ;
+    rdfs:comment                  """"""@en ;
+    rdfs:seeAlso                  <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555> ;
+    nis2:article                  nis2:Article-10 ;
+    nis2:compliance               nis2:Article-10-Compliance ;
+    nis2:compliance               nis2:Article-10-CSIRT-Compliance ;
+    nis2:compliance               nis2:Article-10-MemberState-Compliance ;
+    rdfs:isDefinedBy              <https://eur-lex.europa.eu/> .
+
+##     rdfs:comment     """<https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e1272-80-1> :
+#ANNEX I, SECTORS OF HIGH CRITICALITY."""@en ;
+
+## region Article
+
+nis2:Article
+    ## TODO: abstract
+    a                owl:Class ;
+    skos:notation    "Article"^^xsd:string ;
+    skos:prefLabel   "Article"^^xsd:string ;
+    rdfs:label       "Article"@en ;
+    rdfs:label       "Artikel"@de ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:article
+    a                owl:ObjectProperty ;
+    rdfs:label       "Article"@en ;
+    rdfs:label       "Artikel"@de ;
+    skos:notation    "Article"^^xsd:string ;
+    skos:prefLabel   "Article"^^xsd:string ;
+    rdfs:domain      nis2:Compliance ;
+    rdfs:range       nis2:Article ;
+    rdfs:isDefinedBy nis2: .
+
+## region Article Individuals
+
+nis2:Article-10
+    a                skos:Concept, nis2:Article ;
+    rdfs:label       "Article 10"@en ;
+    rdfs:label       "Artikel 10"@de ;
+    dct:description  "Computer security incident response teams (CSIRTs)"@en ;
+    nis2:compliance  nis2:Article-10-Compliance ;
+    skos:notation    "Article-10"^^xsd:string ;
+    skos:prefLabel   "Article 10"^^xsd:string ;
+    rdfs:isDefinedBy nis2: .
+
+## endregion Article Individuals
+
+## endregion Article
+
+## region Compliance
+
+nis2:Compliance
+    ## TODO: abstract
+    a                owl:Class ;
+    rdfs:label       "Compliance"@en ;
+    rdfs:label       "Regelkonformität"@de ;
+    skos:notation    "Compliance"^^xsd:string ;
+    skos:prefLabel   "Compliance"^^xsd:string ;
+    skos:narrower    nis2:Article-10-Compliance ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:compliance
+    a                owl:ObjectProperty ;
+    rdfs:label       "Compliance"@en ;
+    rdfs:label       "Regelkonformität"@de ;
+    skos:notation    "Compliance"^^xsd:string ;
+    skos:prefLabel   "Compliance"^^xsd:string ;
+    rdfs:domain      nis2:Article ;
+    rdfs:domain      nis2:Agent ;
+    rdfs:range       nis2:Compliance ;
+    rdfs:isDefinedBy nis2: .
+
+## region Compliance Individuals
+## region Compliance Individuals "Article 10"
+
+nis2:Article-10-Compliance
+    a                skos:Concept, nis2:Compliance ;
+    rdfs:label       "Article 10 Compliance"@en ;
+    rdfs:label       "Artikel 10 Regelkonformität"@de ;
+    nis2:article     nis2:Article-10 ;
+    skos:notation    "Article-10-Compliance"^^xsd:string ;
+    skos:prefLabel   "Article 10 Compliance"^^xsd:string ;
+    skos:broader     nis2:Compliance ;
+    skos:related     nis2:Article-10 ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:Article-10-MemberState-Compliance
+    a                skos:Concept, nis2:Compliance ;
+    rdfs:label       """Article 10 "Member State" Compliance"""@en ;
+    rdfs:label       """Artikel 10 "Mitgliedstaat"-Regelkonformität"""@de ;
+    nis2:article     nis2:Article-10 ;
+    skos:notation    "Article-10-MemberState-Compliance"^^xsd:string ;
+    skos:prefLabel   """Article 10 "Member State" Compliance"""^^xsd:string ;
+    skos:broader     nis2:Article-10-Compliance ;
+    skos:related     nis2:Article-10 ;
+    skos:related     nis2:MemberState ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:Article-10-CSIRT-Compliance
+    a                skos:Concept, nis2:Compliance ;
+    rdfs:label       """Article 10 "CSIRT" Compliance"""@en ;
+    rdfs:label       """Artikel 10 "CSIRT"-Regelkonformität"""@de ;
+    nis2:article     nis2:Article-10 ;
+    skos:notation    "Article-10-CSIRT-Compliance"^^xsd:string ;
+    skos:prefLabel   """Article 10 "CSIRT" Compliance"""^^xsd:string ;
+    skos:broader     nis2:Article-10-Compliance ;
+    skos:related     nis2:Article-10 ;
+    skos:related     nis2:CSIRT ;
+    rdfs:isDefinedBy nis2: .
+
+## endregion Compliance Individuals "Article 10"
+## endregion Compliance Individuals
+
+## endregion Compliance
+
+## region Criticality
+
+nis2:Criticality
+    a                owl:Class ;
+    rdfs:label       "Criticality"@en ;
+    rdfs:label       "Kritikalität"@en ;
+    skos:notation    "Criticality"^^xsd:string ;
+    skos:prefLabel   "Criticality"^^xsd:string ;
+    skos:narrower    nis2:Criticality_HIGH ;
+    skos:narrower    nis2:Criticality_MID ;
+    skos:narrower    nis2:Criticality_LOW ;
+    skos:narrower    nis2:Criticality_OTHER ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:criticality
+    a                owl:ObjectProperty ;
+    rdfs:label       "Criticality"@en ;
+    rdfs:label       "Kritikalität"@de ;
+    skos:notation    "criticality"^^xsd:string ;
+    skos:prefLabel   "Criticality"^^xsd:string ;
+    rdfs:range       nis2:Criticality ;
+    rdfs:isDefinedBy nis2: .
+
+## region Criticality Individuals
+
+nis2:Criticality_HIGH
+    a                nis2:Criticality, owl:NamedIndividual ;
+    rdfs:label       "High criticality"@en ;
+    rdfs:label       "Hohe Kritikalität"@de ;
+    skos:notation    "Criticality_HIGH"^^xsd:string ;
+    skos:prefLabel   "High criticality"^^xsd:string ;
+    skos:broader     nis2:Criticality ;
+    skos:related     nis2:Criticality_OTHER ;
+    rdfs:comment     """See also ("ANNEX I, SECTORS OF HIGH CRITICALITY"): <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-143-1>."""@en ;
+    rdfs:seeAlso     <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-143-1> ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:Criticality_OTHER
+    a                nis2:Criticality, owl:NamedIndividual ;
+    rdfs:label       "Other criticality"@en ;
+    rdfs:label       "Weitere Kritikalität"@de ;
+    skos:notation    "Criticality_OTHER"^^xsd:string ;
+    skos:prefLabel   "Other criticality"^^xsd:string ;
+    skos:broader     nis2:Criticality ;
+    skos:related     nis2:Criticality_HIGH ;
+    rdfs:comment     """See also ("ANNEX II, OTHER CRITICAL SECTORS"): <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-148-1>."""@en ;
+    rdfs:seeAlso     <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-148-1> ;
+    rdfs:isDefinedBy nis2: .
+
+## endregion Criticality Individuals
+
+## endregion Criticaity
+
+## region Actor
+
+nis2:Actor
+    ## TODO: abstract
+    a                owl:Class ;
+    rdfs:label       "Actor"@en ;
+    rdfs:label       "Akteur"@de ;
+    skos:notation    "Actor"^^xsd:string ;
+    skos:prefLabel   "Actor"^^xsd:string ;
+    rdfs:isDefinedBy nis2: .
+
+## region Actor Agent
+
+nis2:Agent
+    ## TODO: abstract
+    a                owl:Class ;
+    rdfs:subClassOf  nis2:Actor ;
+    rdfs:label       "Agent"@en ;
+    rdfs:label       "Agent"@de ;
+    skos:notation    "Agent"^^xsd:string ;
+    skos:prefLabel   "Agent"^^xsd:string ;
+    rdfs:comment     """So, instances of 'nis2:Actor' are Participants of given Eco-System or Data Space..."""@en ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:agent
+    a                owl:ObjectProperty ;
+    rdfs:label       "Agent"@en ;
+    rdfs:label       "Agent"@de ;
+    skos:notation    "agent"^^xsd:string ;
+    skos:prefLabel   "Agent"^^xsd:string ;
+## TODO: TBD:    rdfs:domain      ;
+    rdfs:range       nis2:Agent ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:CSIRT
+    a                owl:Class ;
+    rdfs:subClassOf  nis2:Agent ;
+    rdfs:label       "CSIRT"@en ;
+    rdfs:label       "CSIRT"@de ;
+    skos:notation    "CSIRT"^^xsd:string ;
+    skos:prefLabel   "CSIRT"^^xsd:string ;
+    rdfs:isDefinedBy nis2: .
+
+## region Actor Agent Institution
+
+nis2:Institution
+    ## TODO: abstract
+    ## TODO: TBD: ...or nis2:Authority
+    a                owl:Class ;
+    rdfs:subClassOf  nis2:Agent ;
+    rdfs:label       "Institution"@en ;
+    rdfs:label       "Institution"@de ;
+    skos:notation    "Institution"^^xsd:string ;
+    skos:prefLabel   "Institution"^^xsd:string ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:MemberState
+    a                owl:Class ;
+    rdfs:subClassOf  nis2:Institution ;
+    rdfs:subClassOf  nis2:Agent ;
+    rdfs:label       "Member state"@en ;
+    rdfs:label       "Mitgliedstaat"@de ;
+    skos:notation    "MemberState"^^xsd:string ;
+    skos:prefLabel   "Member State"^^xsd:string ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:Representative
+    a                owl:Class ;
+    rdfs:subClassOf  nis2:Institution ;
+    rdfs:subClassOf  nis2:Agent ;
+    rdfs:label       "Representative"@en ;
+    rdfs:label       "Repräsentat"@de ;
+    skos:notation    "Representative"^^xsd:string ;
+    skos:prefLabel   "Representative"^^xsd:string ;
+    rdfs:isDefinedBy nis2: .
+
+## endregion Actor Agent Institution
+## endregion Actor Agent
+
+## endregion Actor
+
+## region Sector
+
+nis2:Sector
+    a                owl:Class ;
+    rdfs:label       "Sector"@en ;
+    rdfs:label       "Sektor"@de ;
+    skos:notation    "Sector"^^xsd:string ;
+    skos:prefLabel   "Sector"^^xsd:string ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:sector
+    a                owl:ObjectProperty ;
+    rdfs:label       "Sector"@en ;
+    rdfs:label       "Sector"@de ;
+    skos:notation    "sector"^^xsd:string ;
+    skos:prefLabel   "Sector"^^xsd:string ;
+## TODO: TBD:    rdfs:domain      ;
+    rdfs:range       nis2:Sector ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:SubSector
+    a                owl:Class ;
+    rdfs:subClassOf  nis2:Sector ;
+    rdfs:label       "Sub-sector"@en ;
+    rdfs:label       "Sub-Sektor"@de ;
+    skos:notation    "SubSector"^^xsd:string ;
+    skos:prefLabel   "SubSector"^^xsd:string ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:subSector
+    a                owl:ObjectProperty ;
+    owl:inverseOf    nis2:subSectorOf ;
+    rdfs:label       "Sub-sector"@en ;
+    rdfs:label       "Sub-Sektor"@de ;
+    skos:notation    "subSector"^^xsd:string ;
+    skos:prefLabel   "subSector"^^xsd:string ;
+    rdfs:domain      nis2:Sector ;
+    rdfs:range       nis2:SubSector ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:subSectorOf
+    a                owl:ObjectProperty ;
+    owl:inverseOf    nis2:subSector ;
+    rdfs:label       "Sub-sector of"@en ;
+    rdfs:label       "Sub-Sektor von"@de ;
+    skos:notation    "subSectorOf"^^xsd:string ;
+    skos:prefLabel   "subSectorOf"^^xsd:string ;
+    rdfs:domain      nis2:SubSector ;
+    rdfs:range       nis2:SubSector ;   ## REM: even NIS2 Directive shows no Sub-sectors of Sub-sectors we put in here...
+    rdfs:range       nis2:Sector ;
+    rdfs:isDefinedBy nis2: .
+
+## endregion Sector
+
+## Sector Individuals
+
+nis2:Energy_Sector
+    a                nis2:Sector, owl:NamedIndividual ;
+    rdfs:label       "Energy Sector"@en ;
+    rdfs:label       "Energie Sektor"@de ;
+    skos:notation    "Energy_Sector"^^xsd:string ;
+    skos:prefLabel   "Energy Sector"^^xsd:string ;
+    nis2:criticality nis2:Criticality_HIGH ;
+    nis2:subSector   nis2:Energy-Electricity_Sector ;
+    nis2:subSector   nis2:Energy-DistrictHeatingAndCooling_Sector ;
+    skos:narrower    nis2:Energy-Electricity_Sector ;
+    skos:narrower    nis2:Energy-DistrictHeatingAndCooling_Sector ;
+    rdfs:seeAlso     <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-143-1> ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:Energy-Electricity_Sector
+    a                nis2:SubSector, owl:NamedIndividual ;
+    rdfs:label       "Electricity Sector (Energy)"@en ;
+    rdfs:label       "Elektricität-Sector (Energy)"@de ;
+    dct:description  """- Electricity undertakings as defined in Article 2, point (57), of Directive (EU) 2019/944 of the European Parliament and of the Council (1), which carry out the function of ‘supply’ as defined in Article 2, point (12), of that Directive
+- Distribution system operators as defined in Article 2, point (29), of Directive (EU) 2019/944
+- Transmission system operators as defined in Article 2, point (35), of Directive (EU) 2019/944
+- Producers as defined in Article 2, point (38), of Directive (EU) 2019/944
+- Nominated electricity market operators as defined in Article 2, point (8), of Regulation (EU) 2019/943 of the European Parliament and of the Council (2)
+- Market participants as defined in Article 2, point (25), of Regulation (EU) 2019/943 providing aggregation, demand response or energy storage services as defined in Article 2, points (18), (20) and (59), of Directive (EU) 2019/944
+- Operators of a recharging point that are responsible for the management and operation of a recharging point, which provides a recharging service to end users, including in the name and on behalf of a mobility service provider"""@en ;
+    skos:notation    "Energy-Electricity_Sector"^^xsd:string ;
+    skos:prefLabel   "Energy-Electricity Sector"^^xsd:string ;
+    nis2:criticality nis2:Criticality_HIGH ;
+    nis2:sector      nis2:Energy_Sector ;
+    skos:broader     nis2:Energy_Sector ;
+    rdfs:seeAlso     <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-143-1> ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:Energy-DistrictHeatingAndCooling_Sector
+    a                nis2:SubSector, owl:NamedIndividual ;
+    rdfs:label       "District Heating and Cooling Sector (Energy)"@en ;
+    dct:description  """- Operators of district heating or district cooling as defined in Article 2, point (19), of Directive (EU) 2018/2001 of the European Parliament and of the Council (3)"""@en ;
+    skos:notation    "Energy-DistrictHeatingAndCooling_Sector"^^xsd:string ;
+    skos:prefLabel   "District Heating and Cooling Sector (Energy)"^^xsd:string ;
+    nis2:criticality nis2:Criticality_HIGH ;
+    nis2:subSectorOf nis2:Energy_Sector ;
+    skos:broader     nis2:Energy_Sector ;
+    rdfs:seeAlso     <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-143-1> ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:Transport_Sector
+    a                nis2:Sector, owl:NamedIndividual ;
+    rdfs:label       "Transport Sector"@en ;
+    skos:notation    "Transport_Sector"^^xsd:string ;
+    skos:prefLabel   "Transport Sector"^^xsd:string ;
+    nis2:criticality nis2:Criticality_HIGH ;
+    nis2:subSector   nis2:Transport-Air_Sector ;
+    skos:narrower    nis2:Transport-Air_Sector ;
+    rdfs:seeAlso     <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-143-1> ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:Transport-Air_Sector
+    a                nis2:SubSector, owl:NamedIndividual ;
+    rdfs:label       "Air Sector (Transport)"@en ;
+    dct:description  """- Air carriers as defined in Article 3, point (4), of Regulation (EC) No 300/2008 used for commercial purposes
+- Airport managing bodies as defined in Article 2, point (2), of Directive 2009/12/EC of the European Parliament and of the Council (6), airports as defined in Article 2, point (1), of that Directive, including the core airports listed in Section 2 of Annex II to Regulation (EU) No 1315/2013 of the European Parliament and of the Council (7), and entities operating ancillary installations contained within airports
+- Traffic management control operators providing air traffic control (ATC) services as defined in Article 2, point (1), of Regulation (EC) No 549/2004 of the European Parliament and of the Council (8)"""@en ;
+    skos:notation    "Transport-Air_Sector"^^xsd:string ;
+    skos:prefLabel   "Air Sector (Transport)"^^xsd:string ;
+    nis2:criticality nis2:Criticality_HIGH ;
+    nis2:subSectorOf nis2:Transport_Sector ;
+    skos:broader     nis2:Transport_Sector ;
+    rdfs:seeAlso     <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-143-1> ;
+    rdfs:isDefinedBy nis2: .
+
+## ANNEX II, OTHER CRITICAL SECTORS
+
+nis2:Manufacturing_Sector
+    a                nis2:Sector, owl:NamedIndividual ;
+    rdfs:label       "Manufacturing Sector"@en ;
+    skos:notation    "Manufacturing_Sector"^^xsd:string ;
+    skos:prefLabel   "Manufacturing Sector"^^xsd:string ;
+    nis2:criticality nis2:Criticality_OTHER ;
+    skos:narrower    nis2:Manufacturing-ElectricalEquipment_Sector ;
+    rdfs:comment     """ANNEX II, OTHER CRITICAL SECTORS"""@en ;
+    rdfs:seeAlso     <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-148-1> ;
+    rdfs:isDefinedBy nis2: .
+
+nis2:Manufacturing-ElectricalEquipment_Sector
+    a                nis2:SubSector, owl:NamedIndividual ;
+    rdfs:label       "Air Sector (Manufacturing)"@en ;
+    dct:description  """Manufacture of electrical equipment"""@en ;
+    skos:notation    "Manufacturing-ElectricalEquipment_Sector"^^xsd:string ;
+    skos:prefLabel   "ElectricalEquipment_Sector Sector (Transport)"^^xsd:string ;
+    nis2:criticality nis2:Criticality_HIGH ;
+    nis2:subSectorOf nis2:Manufacturing_Sector ;
+    skos:broader     nis2:Manufacturing_Sector ;
+    rdfs:comment     """ANNEX II, OTHER CRITICAL SECTORS"""@en ;
+    rdfs:seeAlso     <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-148-1> ;
+    rdfs:isDefinedBy nis2: .

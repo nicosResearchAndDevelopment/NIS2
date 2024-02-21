@@ -1,0 +1,41 @@
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix org:     <http://www.w3.org/ns/org#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix profile: <http://www.w3.org/ns/dx/prof/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role:    <http://www.w3.org/ns/dx/prof/role/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:     <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix entity:  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix nis2:    <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#> .
+@prefix xnis2:   <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555/xnis2#> .
+
+<https://www.nicos-ag.com/>
+    a                org:Organization ;
+    a                entity:LegalEntity ;
+    rdfs:label       "nicos AG"^^xsd:string ;
+    org:hasUnit      <https://www.nicos-ag.com/csirt/> ;
+    rdfs:isDefinedBy <https://www.nicos-ag.com/> .
+
+<https://www.nicos-ag.com/csirt/>
+    a                  org:OrganizationalUnit ;
+    a                  nis2:CSIRT ;
+    a                  entity:Entity ;
+    rdfs:label         "CSIRT"^^xsd:string ;
+    org:unitOf         <https://www.nicos-ag.com/> ;
+    entity:actOnBehalf <https://www.nicos-ag.com/> ;
+    rdfs:isDefinedBy   <https://www.nicos-ag.com/> .
+
+<https://www.nicos-ag.com/csirt/inbox/>
+    rdfs:isDefinedBy <https://www.nicos-ag.com/csirt/> .
+
+<https://www.nicos-ag.com/csirt/notifier/>
+    a                  entity:ServiceInstance ;
+    a                  prov:SoftwareAgent ;
+    entity:actOnBehalf <https://www.nicos-ag.com/> ;
+    rdfs:isDefinedBy   <https://www.nicos-ag.com/csirt/> .

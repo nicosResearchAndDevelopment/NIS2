@@ -1,0 +1,84 @@
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix org:     <http://www.w3.org/ns/org#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix profile: <http://www.w3.org/ns/dx/prof/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role:    <http://www.w3.org/ns/dx/prof/role/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:    <http://purl.org/vocab/vann/> .
+@prefix voaf:    <http://purl.org/vocommons/voaf#> .
+@prefix void:    <http://rdfs.org/ns/void#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:     <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix entity:  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix nis2:    <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#> .
+@prefix xnis2:   <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555/xnis2#> .
+
+## Criticality Individuals EXTENSION
+
+xnis2:Criticality_MID
+    a                nis2:Criticality, owl:NamedIndividual ;
+    rdfs:label       "Mid criticality"@en ;
+    rdfs:label       "Mittlere Kritikalität"@de ;
+    skos:notation    "Criticality_MID"^^xsd:string ;
+    skos:prefLabel   "Mid criticality"^^xsd:string ;
+    skos:broader     nis2:Criticality ;
+    skos:related     xnis2:Criticality_MID ;
+    skos:related     xnis2:Criticality_LOW ;
+    skos:related     nis2:Criticality_OTHER ;
+    rdfs:isDefinedBy nis2: .
+
+xnis2:Criticality_LOW
+    a                nis2:Criticality, owl:NamedIndividual ;
+    rdfs:label       "Low criticality"@en ;
+    rdfs:label       "Niedrige kritikalität"@de ;
+    skos:notation    "Criticality_LOW"^^xsd:string ;
+    skos:prefLabel   "Low criticality"^^xsd:string ;
+    skos:broader     nis2:Criticality ;
+    skos:related     nis2:Criticality_HIGH ;
+    skos:related     xnis2:Criticality_MID ;
+    skos:related     xnis2:Criticality_LOW ;
+    rdfs:comment     """See also ("ANNEX II, OTHER CRITICAL SECTORS"): <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-148-1>"""@en ;
+    rdfs:seeAlso     <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-148-1> ;
+    rdfs:isDefinedBy xnis2: .
+
+nis2:Criticality_HIGH
+    skos:related     xnis2:Criticality_MID ;
+    skos:related     xnis2:Criticality_LOW ;
+    rdfs:isDefinedBy xnis2: .
+
+nis2:Criticality_OTHER
+    skos:related     xnis2:Criticality_MID ;
+    skos:related     xnis2:Criticality_LOW ;
+    rdfs:isDefinedBy xnis2: .
+
+## region List
+
+xnis2:TrustList
+    ## TODO: shacl :: abstract
+    a                owl:Class ;
+    skos:notation    "TrustList"^^xsd:string ;
+    skos:prefLabel   "Trust List"^^xsd:string ;
+    rdfs:label       "Trust List"@en ;
+    rdfs:isDefinedBy xnis2: .
+
+xnis2:trustList
+    a                owl:ObjectProperty ;
+    rdfs:label       "Trust List"@en ;
+    rdfs:label       "Trust List"@de ;
+    dct:description  """Property to bind a given Gateway."""@en ;
+    rdfs:domain      nis2:MemberState ;
+    rdfs:range       nis2:Agent ;
+    rdfs:isDefinedBy xnis2: .
+
+xnis2:ListOfTrustLists
+    ## TODO: shacl :: abstract
+    a                owl:Class ;
+    skos:notation    "ListOfTrustLists"^^xsd:string ;
+    skos:prefLabel   "List of Trust Lists"^^xsd:string ;
+    rdfs:label       "List of Trust Lists"@en ;
+    rdfs:isDefinedBy xnis2: .
+
