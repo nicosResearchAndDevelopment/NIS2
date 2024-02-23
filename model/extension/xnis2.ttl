@@ -4,6 +4,8 @@
 @prefix org:     <http://www.w3.org/ns/org#> .
 @prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
 @prefix profile: <http://www.w3.org/ns/dx/prof/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix role:    <http://www.w3.org/ns/dx/prof/role/> .
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
@@ -14,8 +16,93 @@
 
 @prefix lds:     <https://github.com/nicosResearchAndDevelopment/LDS/> .
 @prefix entity:  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
-@prefix nis2:    <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#> .
-@prefix xnis2:   <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555/xnis2#> .
+@prefix nis2:     <https://github.com/nicosResearchAndDevelopment/NIS2/> .
+@prefix xnis2:    <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555/xnis2#> .
+
+## region Actor
+## region Actor Agent
+## region Actor Agent Inbox
+
+xnis2:Inbox
+    ## TODO: abstract
+    a                owl:Class ;
+    rdfs:subClassOf  entity:ServiceInstance ;
+    rdfs:subClassOf  prov:SoftwareAgent ;
+    rdfs:subClassOf  nis2:Agent ;
+    rdfs:subClassOf  [ a                  owl:Restriction ;
+                       owl:maxCardinality "0"^^xsd:nonNegativeInteger ;
+                       owl:onProperty     xnis2:inbox ;
+                       ## TODO:
+                       rdfs:comment       """TODO: this should be done by SHACL."""@en ; ] ;
+    rdfs:label       "Inbox"@en ;
+    rdfs:label       "Inbox"@de ;
+    skos:notation    "inbox"^^xsd:string ;
+    skos:prefLabel   "Inbox"^^xsd:string ;
+    rdfs:isDefinedBy xnis2: .
+
+xnis2:inbox
+    a                rdf:Property ;
+    rdfs:label       "Inbox"@en ;
+    rdfs:label       "Inbox"@de ;
+    skos:notation    "inbox"^^xsd:string ;
+    skos:prefLabel   "Inbox"^^xsd:string ;
+    rdfs:domain      [ a           owl:Class ;
+                       owl:unionOf ( nis2:Agent ) ] ;
+    ## ILO: rdfs:range ## REM: cardinality [0..n]
+    rdfs:comment     """'rdfs:range' :: intentionally left open (ILO). Example:
+nis2:inbox "jlangkau@nicos-ag.com"^^xsd:string ;
+nis2:inbox "https://www.nicos-cdc.com/nCDC/inbox/"^^xsd:anyURI ;
+nis2:inbox <https://www.nicos-cdc.com/nCDC/inbox/> ;
+nis2:inbox "+49 251 4242424242424242424242424242424"^^xsd:string ;
+nis2:inbox "Jörg Langkau, Robert-Bosch-Straße 17a, 48153 Münster, Germany"^^xsd:string ;
+nis2:inbox [ a http://www.w3.org/ns/prov#Location ;
+                rdfs:seeAlso "https://cdn.standards.iteh.ai/samples/70742/cfb5dda4d42646ce8de82699d2073343/ISO-19112-2019.pdf" ;
+          ]  ;
+"""@en ;
+    rdfs:isDefinedBy xnis2: .
+## endregion Actor Agent Inbox
+
+## region Actor Agent Notifier
+xnis2:Notifier
+    ## TODO: abstract
+    a                owl:Class ;
+    rdfs:subClassOf  entity:ServiceInstance ;
+    rdfs:subClassOf  prov:SoftwareAgent ;
+    rdfs:subClassOf  nis2:Agent ;
+    rdfs:subClassOf  [ a                  owl:Restriction ;
+                       owl:maxCardinality "0"^^xsd:nonNegativeInteger ;
+                       owl:onProperty     xnis2:notifier ;
+                       ## TODO:
+                       rdfs:comment       """TODO: this should be done by SHACL."""@en ; ] ;
+    rdfs:label       "Notifier"@en ;
+    rdfs:label       "Notifier"@de ;
+    dct:description  """Notification (a process) Client, sending a message to nis2:Agent´s inbox."""@en ;
+    skos:notation    "Notifier"^^xsd:string ;
+    skos:prefLabel   "Notifier"^^xsd:string ;
+    rdfs:isDefinedBy xnis2: .
+
+xnis2:notifier
+    a                rdf:Property ;
+    rdfs:label       "Notifier"@en ;
+    rdfs:label       "Notifier"@de ;
+    skos:notation    "notifier"^^xsd:string ;
+    skos:prefLabel   "Notifier"^^xsd:string ;
+    rdfs:domain      [ a           owl:Class ;
+                       owl:unionOf ( nis2:Agent ) ; ] ;
+    ## rdfs:range ## REM: cardinality [0..n]
+    ## ILO: rdfs:range       (intentionally left open)  ;
+    rdfs:comment     """'rdfs:range' :: intentionally left open (ILO). Example:
+nis2:notifier "incident-from-jlangkau@nicos-ag.com"^^xsd:string ;
+nis2:notifier <https://www.nicos-cdc.com/nCDC/nis/notifier/> ; ## REM: an instance of 'xnis2:Notifier'
+nis2:notifier "+49 251 4242424242424242424242424242424"^^xsd:string ;
+nis2:notifier "Jörg Langkau, Robert-Bosch-Straße 17a, 48153 Münster, Germany"^^xsd:string ;
+"""@en ;
+    rdfs:isDefinedBy xnis2: .
+
+## endregion Actor Agent Notifier
+
+## endregion Actor Agent
+## endregion Actor
 
 ## Criticality Individuals EXTENSION
 
@@ -29,7 +116,7 @@ xnis2:Criticality_MID
     skos:related     xnis2:Criticality_MID ;
     skos:related     xnis2:Criticality_LOW ;
     skos:related     nis2:Criticality_OTHER ;
-    rdfs:isDefinedBy nis2: .
+    rdfs:isDefinedBy xnis2: .
 
 xnis2:Criticality_LOW
     a                nis2:Criticality, owl:NamedIndividual ;
@@ -69,16 +156,30 @@ xnis2:trustList
     a                owl:ObjectProperty ;
     rdfs:label       "Trust List"@en ;
     rdfs:label       "Trust List"@de ;
-    dct:description  """Property to bind a given Gateway."""@en ;
+    skos:notation    "trustList"^^xsd:string ;
+    skos:prefLabel   "Trust List"^^xsd:string ;
     rdfs:domain      nis2:MemberState ;
-    rdfs:range       nis2:Agent ;
+    rdfs:domain      nis2:ListOfTrustLists ;
+    ## TODO: rdfs:domain      nis2:MemberState ; >>> rdfs:domain      nis2:NationalAuthority / Representative
+    rdfs:range       nis2:TrustList ; ## CARD [0..1]
     rdfs:isDefinedBy xnis2: .
 
 xnis2:ListOfTrustLists
     ## TODO: shacl :: abstract
     a                owl:Class ;
+    rdfs:label       "List of Trust Lists"@en ;
+    rdfs:label       "Liste von Vertrauenslisten"@de ;
     skos:notation    "ListOfTrustLists"^^xsd:string ;
     skos:prefLabel   "List of Trust Lists"^^xsd:string ;
-    rdfs:label       "List of Trust Lists"@en ;
     rdfs:isDefinedBy xnis2: .
 
+xnis2:listOfTrustLists
+    a                owl:ObjectProperty ;
+    rdfs:label       "List of Trust Lists"@en ;
+    rdfs:label       "Liste von Vertrauenslisten"@de ;
+    skos:notation    "listOfTrustLists"^^xsd:string ;
+    skos:prefLabel   "List of Trust Lists"^^xsd:string ;
+    ## TODO: rdfs:domain      nis2:MemberState ; >>> rdfs:domain      nis2:NationalAuthority / Representative
+    rdfs:domain      nis2:MemberState ;
+    rdfs:range       nis2:ListOfTrustLists ; ## CARD [0..1]
+    rdfs:isDefinedBy xnis2: .

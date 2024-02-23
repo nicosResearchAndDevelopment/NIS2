@@ -12,37 +12,34 @@
 @prefix void:    <http://rdfs.org/ns/void#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
+@prefix EU:      <https://european-union.europa.eu/> .
+
 @prefix lds:     <https://github.com/nicosResearchAndDevelopment/LDS/> .
 @prefix entity:  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
-@prefix nis2:    <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#> .
+@prefix nis2:    <https://github.com/nicosResearchAndDevelopment/NIS2/> .
 
-<https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#>
+<https://github.com/nicosResearchAndDevelopment/NIS2/>
     a                             voaf:Vocabulary ;
     a                             owl:Ontology ;
     skos:prefLabel                "European Network and Information Security legislation, NIS2"^^xsd:string ;
     rdfs:label                    "European Network and Information Security legislation, NIS2"@en ;
     dct:title                     "Model for NIS2"@en ;
-    dct:description               """DIRECTIVE (EU) 2022/2555 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 14 December 2022 on measures for a high common level of cybersecurity across the Union, amending Regulation (EU) No 910/2014 and Directive (EU) 2018/1972, and rep."""@en ;
+    dct:description               """"""@en ;
 ## TODO : cc:license                    <> ;
-    dct:creator                   <https://eur-lex.europa.eu/> ;
-    dct:publisher                 <https://eur-lex.europa.eu/> ;
-    dct:created                   "2022-12-27"^^xsd:date ;
+    dct:creator                   <https://jlangkau.solidweb.org/> ;
+    dct:publisher                 <https://www.nicos-ag.com> ;
+    dct:created                   "2023-02-19"^^xsd:date ;
     ## TODO: dct:modified                  {{now.date}} ;
-    owl:versionInfo               "2.0.0" ;
+    owl:versionInfo               "1.0.0" ;
     ## TODO: owl:versionInfo               {{version.ontology}} ;
-    vann:preferredNamespaceUri    "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#" ;
+    vann:preferredNamespaceUri    "https://github.com/nicosResearchAndDevelopment/NIS2/"^^xsd:anyURI ;
     vann:preferredNamespacePrefix "nis2:" ;
     void:vocabulary               vann:, void:, voaf:, dct: ;
-    rdfs:comment                  """"""@en ;
-    rdfs:seeAlso                  <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555> ;
-    nis2:article                  nis2:Article-10 ;
-    nis2:compliance               nis2:Article-10-Compliance ;
-    nis2:compliance               nis2:Article-10-CSIRT-Compliance ;
-    nis2:compliance               nis2:Article-10-MemberState-Compliance ;
-    rdfs:isDefinedBy              <https://eur-lex.europa.eu/> .
-
-##     rdfs:comment     """<https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e1272-80-1> :
-#ANNEX I, SECTORS OF HIGH CRITICALITY."""@en ;
+    ####################################################################################################################
+    skos:broader                  EU:DIRECTIVE_2018-1972 ; # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    ####################################################################################################################
+    rdfs:seeAlso                  <https://github.com/nicosResearchAndDevelopment/NIS2/> ;
+    rdfs:isDefinedBy              <https://jlangkau.solidweb.org/> .
 
 ## region Article
 
@@ -72,7 +69,7 @@ nis2:Article-10
     rdfs:label       "Article 10"@en ;
     rdfs:label       "Artikel 10"@de ;
     dct:description  "Computer security incident response teams (CSIRTs)"@en ;
-    nis2:compliance  nis2:Article-10-Compliance ;
+    nis2:compliant   nis2:Article-10-Compliance ;
     skos:notation    "Article-10"^^xsd:string ;
     skos:prefLabel   "Article 10"^^xsd:string ;
     rdfs:isDefinedBy nis2: .
@@ -93,12 +90,12 @@ nis2:Compliance
     skos:narrower    nis2:Article-10-Compliance ;
     rdfs:isDefinedBy nis2: .
 
-nis2:compliance
+nis2:compliant
     a                owl:ObjectProperty ;
-    rdfs:label       "Compliance"@en ;
-    rdfs:label       "Regelkonformität"@de ;
-    skos:notation    "Compliance"^^xsd:string ;
-    skos:prefLabel   "Compliance"^^xsd:string ;
+    rdfs:label       "Compliant"@en ;
+    rdfs:label       "Regelkonform"@de ;
+    skos:notation    "compliant"^^xsd:string ;
+    skos:prefLabel   "Compliant"^^xsd:string ;
     rdfs:domain      nis2:Article ;
     rdfs:domain      nis2:Agent ;
     rdfs:range       nis2:Compliance ;
@@ -214,7 +211,7 @@ nis2:Actor
 ## region Actor Agent
 
 nis2:Agent
-    ## TODO: abstract
+    ## TODO: TBSD: !!!! abstract ??????????????
     a                owl:Class ;
     rdfs:subClassOf  nis2:Actor ;
     rdfs:label       "Agent"@en ;
@@ -233,6 +230,8 @@ nis2:agent
 ## TODO: TBD:    rdfs:domain      ;
     rdfs:range       nis2:Agent ;
     rdfs:isDefinedBy nis2: .
+
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
 nis2:CSIRT
     a                owl:Class ;
@@ -271,7 +270,7 @@ nis2:Representative
     rdfs:subClassOf  nis2:Institution ;
     rdfs:subClassOf  nis2:Agent ;
     rdfs:label       "Representative"@en ;
-    rdfs:label       "Repräsentat"@de ;
+    rdfs:label       "Repräsentant"@de ;
     skos:notation    "Representative"^^xsd:string ;
     skos:prefLabel   "Representative"^^xsd:string ;
     rdfs:isDefinedBy nis2: .
@@ -354,7 +353,7 @@ nis2:Energy_Sector
 nis2:Energy-Electricity_Sector
     a                nis2:SubSector, owl:NamedIndividual ;
     rdfs:label       "Electricity Sector (Energy)"@en ;
-    rdfs:label       "Elektricität-Sector (Energy)"@de ;
+    rdfs:label       "Elektrizität-Sector (Energy)"@de ;
     dct:description  """- Electricity undertakings as defined in Article 2, point (57), of Directive (EU) 2019/944 of the European Parliament and of the Council (1), which carry out the function of ‘supply’ as defined in Article 2, point (12), of that Directive
 - Distribution system operators as defined in Article 2, point (29), of Directive (EU) 2019/944
 - Transmission system operators as defined in Article 2, point (35), of Directive (EU) 2019/944

@@ -10,5 +10,6 @@ Ontology of *Network and Information Security* Version 2 (NIS2).
 
 [<<https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555>>](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555)
 
+Preferred namespace prefix: `nis2:`.
 
 ---

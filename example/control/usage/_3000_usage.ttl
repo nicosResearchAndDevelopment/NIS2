@@ -1,0 +1,47 @@
+@prefix odrl:       <http://www.w3.org/ns/odrl/2/> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix prov:       <http://www.w3.org/ns/prov#> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:        <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix lds-cc:     <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
+@prefix entity:     <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix credential: <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/credential/> .
+@prefix nis2:        <https://github.com/nicosResearchAndDevelopment/NIS2/> .
+@prefix xnis2:       <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555/xnis2#> .
+
+## EXAMPLE:
+# Notifier (Agent) expresses, that given and (the incident) requesting
+#   agent is allowed to give information only to special third-party agents,
+#   those following the compliance (here: "Article-10-CSIRT-Compliance").
+##
+
+<https://www.nicos-cdc.com/nCDC/incident/42-43-44-45-46>
+    a                odrl:Asset ;
+    ## cred:termsOfUse
+    odrl:hasPolicy   <https://www.nicos-cdc.com/nCDC/policy/usage/incident/by-Article-10-CSIRT-Compliance/> ;
+    rdfs:isDefinedBy <https://www.nicos-cdc.com/nCDC/> .
+
+<https://www.nicos-cdc.com/nCDC/policy/usage/incident/by-Article-10-CSIRT-Compliance/>
+    a                odrl:Policy ;
+    odrl:permission  [ a odrl:Permission ;
+        odrl:assigner    <https://www.nicos-cdc.com/nCDC/> ;
+        odrl:assignee    [ a               odrl:PartyCollection ;
+                           ## REM: a nis2:Agent
+                           ##
+                           odrl:source     "urn:assignee"^^xsd:anyURI ;
+                           odrl:refinement [ a                 odrl:Constraint ;
+                                             odrl:leftOperand  nis2:compliant ;
+                                             odrl:operator     odrl:isPartOf ;
+                                             odrl:rightOperand nis2:Article-10-CSIRT-Compliance ;
+                                             odrl:dataType     xsd:anyURI ; ] ;
+                           ##
+                         ] ; ## odrl:assignee (odrl:PartyCollection)
+                     ] ; ## odrl:permission
+    ## REM: This will come from given Asset itself...
+    ##      odrl:target      <> ;
+    odrl:action      odrl:use ;
+    rdfs:isDefinedBy <https://www.nicos-cdc.com/nCDC/> .

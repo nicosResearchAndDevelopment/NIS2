@@ -1,0 +1,2677 @@
+{
+	"@context": {
+		"dc": "http://purl.org/dc/elements/1.1/",
+		"dct": "http://purl.org/dc/terms/",
+		"owl": "http://www.w3.org/2002/07/owl#",
+		"org": "http://www.w3.org/ns/org#",
+		"odrl": "http://www.w3.org/ns/odrl/2/",
+		"profile": "http://www.w3.org/ns/dx/prof/",
+		"prov": "http://www.w3.org/ns/prov#",
+		"rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+		"rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+		"role": "http://www.w3.org/ns/dx/prof/role/",
+		"skos": "http://www.w3.org/2004/02/skos/core#",
+		"vann": "http://purl.org/vocab/vann/",
+		"voaf": "http://purl.org/vocommons/voaf#",
+		"void": "http://rdfs.org/ns/void#",
+		"xsd": "http://www.w3.org/2001/XMLSchema#",
+		"lds": "https://github.com/nicosResearchAndDevelopment/LDS/",
+		"entity": "https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/",
+		"nis2": "https://github.com/nicosResearchAndDevelopment/NIS2/",
+		"xnis2": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555/xnis2#",
+		"EU": "https://european-union.europa.eu/",
+		"EP": "https://www.europarl.europa.eu/",
+		"EC": "https://commission.europa.eu/",
+		"foaf": "http://xmlns.com/foaf/0.1/",
+		"lds-cc": "https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/",
+		"credential": "https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/credential/"
+	},
+	"@graph": {
+		"EU:": {
+			"@id": "EU:",
+			"@type": "org:FormalOrganization",
+			"skos:prefLabel": {
+				"@value": "European Union",
+				"@language": "en"
+			},
+			"skos:altLabel": "EU",
+			"org:hasSubOrganization": [
+				{
+					"@id": "EP:"
+				},
+				{
+					"@id": "https://www.consilium.europa.eu/"
+				},
+				{
+					"@id": "EC:"
+				}
+			],
+			"EU:memberState": [
+				{
+					"@id": "https://european-union.europa.eu/principles-countries-history/country-profiles/germany_en"
+				},
+				{
+					"@id": "https://european-union.europa.eu/principles-countries-history/country-profiles/france_en"
+				}
+			],
+			"rdfs:seeAlso": {
+				"@value": "https://european-union.europa.eu/principles-countries-history/country-profiles_en",
+				"@type": "xsd:anyURI"
+			},
+			"EU:regulation": {
+				"@id": "EU:REGULATION_910-2014"
+			},
+			"EU:directive": [
+				{
+					"@id": "EU:DIRECTIVE_2016-1148"
+				},
+				{
+					"@id": "EU:DIRECTIVE_2018-1972"
+				},
+				{
+					"@id": "EU:DIRECTIVE_2022-2555"
+				}
+			],
+			"rdfs:isDefinedBy": {
+				"@id": "EU:"
+			}
+		},
+		"EU:MemberState": {
+			"@id": "EU:MemberState",
+			"@type": "owl:Class",
+			"rdfs:label": [
+				{
+					"@value": "Member state",
+					"@language": "en"
+				},
+				{
+					"@value": "Mitgliedstaat",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "MemberState",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Member state",
+				"@type": "xsd:string"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "EU:"
+			}
+		},
+		"EU:memberState": {
+			"@id": "EU:memberState",
+			"@type": "owl:ObjectProperty",
+			"rdfs:label": [
+				{
+					"@value": "Member state",
+					"@language": "en"
+				},
+				{
+					"@value": "Mitgliedstaat",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "memberState",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Member state",
+				"@type": "xsd:string"
+			},
+			"rdfs:domain": {
+				"@id": "EU:"
+			},
+			"rdfs:range": {
+				"@id": "EU:MemberState"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "EU:"
+			}
+		},
+		"EU:governance": {
+			"@id": "EU:governance",
+			"@type": "owl:ObjectProperty",
+			"rdfs:label": [
+				{
+					"@value": "Member state",
+					"@language": "en"
+				},
+				{
+					"@value": "Mitgliedstaat",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "memberState",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Member state",
+				"@type": "xsd:string"
+			},
+			"rdfs:domain": {
+				"@id": "EU:MemberState"
+			},
+			"rdfs:range": {
+				"@id": "xsd:anyURI"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "EU:"
+			}
+		},
+		"https://european-union.europa.eu/principles-countries-history/country-profiles/germany_en": {
+			"@id": "https://european-union.europa.eu/principles-countries-history/country-profiles/germany_en",
+			"@type": "EU:MemberState",
+			"rdfs:label": [
+				{
+					"@value": "Germany",
+					"@language": "en"
+				},
+				{
+					"@value": "Deutschland",
+					"@language": "de"
+				}
+			],
+			"skos:prefLabel": {
+				"@value": "Bundesrepublik Deutschland",
+				"@type": "xsd:string"
+			},
+			"EU:governance": {
+				"@value": "https://www.bundesregierung.de/",
+				"@type": "xsd:anyURI"
+			},
+			"rdfs:seeAlso": [
+				{
+					"@value": "https://www.deutschland.de/",
+					"@type": "xsd:anyURI"
+				},
+				{
+					"@value": "https://en.wikipedia.org/wiki/Germany",
+					"@type": "xsd:anyURI"
+				}
+			],
+			"rdfs:isDefinedBy": {
+				"@id": "EU:"
+			}
+		},
+		"https://european-union.europa.eu/principles-countries-history/country-profiles/france_en": {
+			"@id": "https://european-union.europa.eu/principles-countries-history/country-profiles/france_en",
+			"@type": "EU:MemberState",
+			"rdfs:label": [
+				{
+					"@value": "France",
+					"@language": "fr"
+				},
+				{
+					"@value": "France",
+					"@language": "en"
+				},
+				{
+					"@value": "Frankreich",
+					"@language": "de"
+				}
+			],
+			"skos:prefLabel": {
+				"@value": "la République française",
+				"@type": "xsd:string"
+			},
+			"EU:governance": {
+				"@value": "https://www.service-public.fr/",
+				"@type": "xsd:anyURI"
+			},
+			"rdfs:seeAlso": [
+				{
+					"@value": "https://www.france.fr/",
+					"@type": "xsd:anyURI"
+				},
+				{
+					"@value": "https://en.wikipedia.org/wiki/France",
+					"@type": "xsd:anyURI"
+				}
+			],
+			"rdfs:isDefinedBy": {
+				"@id": "EU:"
+			}
+		},
+		"EU:Regulation": {
+			"@id": "EU:Regulation",
+			"@type": "owl:Class",
+			"rdfs:label": [
+				{
+					"@value": "Regulation",
+					"@language": "en"
+				},
+				{
+					"@value": "Verordnung",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "Regulation",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Regulation",
+				"@type": "xsd:string"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "EU:"
+			}
+		},
+		"EU:regulation": {
+			"@id": "EU:regulation",
+			"@type": "owl:ObjectProperty",
+			"rdfs:label": [
+				{
+					"@value": "Regulation",
+					"@language": "en"
+				},
+				{
+					"@value": "Regulation",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "regulation",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Regulation",
+				"@type": "xsd:string"
+			},
+			"rdfs:domain": {
+				"@id": "EU:"
+			},
+			"rdfs:range": {
+				"@id": "EU:Regulation"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "EU:"
+			}
+		},
+		"EU:Directive": {
+			"@id": "EU:Directive",
+			"@type": "owl:Class",
+			"rdfs:label": [
+				{
+					"@value": "Directive",
+					"@language": "en"
+				},
+				{
+					"@value": "Direktive",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "Directive",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Directive",
+				"@type": "xsd:string"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "EU:"
+			}
+		},
+		"EU:directive": {
+			"@id": "EU:directive",
+			"@type": "owl:ObjectProperty",
+			"rdfs:label": [
+				{
+					"@value": "Directive",
+					"@language": "en"
+				},
+				{
+					"@value": "Direktive",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "directive",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Directive",
+				"@type": "xsd:string"
+			},
+			"rdfs:domain": {
+				"@id": "EU:"
+			},
+			"rdfs:range": {
+				"@id": "EU:Directive"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "EU:"
+			}
+		},
+		"EU:repeals": {
+			"@id": "EU:repeals",
+			"@type": "owl:ObjectProperty",
+			"rdfs:label": [
+				{
+					"@value": "Repeals",
+					"@language": "en"
+				},
+				{
+					"@value": "Widerruft",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "repeals",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Repeals",
+				"@type": "xsd:string"
+			},
+			"rdfs:domain": {
+				"@id": "EU:Directive"
+			},
+			"rdfs:range": [
+				{
+					"@id": "EU:Directive"
+				},
+				{
+					"@id": "EU:Regulation"
+				}
+			],
+			"rdfs:isDefinedBy": {
+				"@id": "EU:"
+			}
+		},
+		"EU:amends": {
+			"@id": "EU:amends",
+			"@type": "owl:ObjectProperty",
+			"rdfs:label": [
+				{
+					"@value": "Amends",
+					"@language": "en"
+				},
+				{
+					"@value": "Ändert",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "amends",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Amends",
+				"@type": "xsd:string"
+			},
+			"rdfs:domain": {
+				"@id": "EU:Directive"
+			},
+			"rdfs:range": {
+				"@id": "EU:Directive"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "EU:"
+			}
+		},
+		"EU:REGULATION_910-2014": {
+			"@id": "EU:REGULATION_910-2014",
+			"@type": "EU:Regulation",
+			"rdfs:label": {
+				"@value": "REGULATION (EU) No 910/2014",
+				"@language": "en"
+			},
+			"dct:description": "REGULATION (EU) No 910/2014 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL\r\nof 23 July 2014\r\non electronic identification and trust services for electronic transactions in the internal market and\r\nrepealing Directive 1999/93/EC",
+			"dct:issued": {
+				"@value": "2014-07-23",
+				"@type": "xsd:date"
+			},
+			"rdfs:seeAlso": {
+				"@value": "https://eur-lex.europa.eu/eli/reg/2014/910/oj",
+				"@type": "xsd:anyURI"
+			},
+			"rdfs:isDefinedBy": [
+				{
+					"@id": "EU:"
+				},
+				{
+					"@id": "EP:"
+				}
+			]
+		},
+		"EU:DIRECTIVE_2016-1148": {
+			"@id": "EU:DIRECTIVE_2016-1148",
+			"@type": "EU:Directive",
+			"rdfs:label": {
+				"@value": "DIRECTIVE (EU) 2016/1148",
+				"@language": "en"
+			},
+			"dct:description": {
+				"@value": "DIRECTIVE (EU) 2016/1148 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL\r\nof 6 July 2016\r\nconcerning measures for a high common level of security of network and information systems across the Union",
+				"@language": "en"
+			},
+			"dct:issued": {
+				"@value": "2016-07-06",
+				"@type": "xsd:date"
+			},
+			"rdfs:seeAlso": {
+				"@value": "https://eur-lex.europa.eu/eli/dir/2016/1148/oj",
+				"@type": "xsd:anyURI"
+			},
+			"rdfs:isDefinedBy": [
+				{
+					"@id": "EU:"
+				},
+				{
+					"@id": "EP:"
+				}
+			]
+		},
+		"EU:DIRECTIVE_2018-1972": {
+			"@id": "EU:DIRECTIVE_2018-1972",
+			"@type": "EU:Directive",
+			"rdfs:label": {
+				"@value": "DIRECTIVE (EU) 2018/1972",
+				"@language": "en"
+			},
+			"dct:description": {
+				"@value": "Directive (EU) 2018/1972 of the European Parliament and of the Council\r\nof 11 December 2018\r\nestablishing the European Electronic Communications Code (Recast)Text with EEA relevance.",
+				"@language": "en"
+			},
+			"dct:issued": {
+				"@value": "2018-12-11",
+				"@type": "xsd:date"
+			},
+			"rdfs:seeAlso": {
+				"@value": "https://eur-lex.europa.eu/eli/dir/2018/1972/oj",
+				"@type": "xsd:anyURI"
+			},
+			"rdfs:isDefinedBy": [
+				{
+					"@id": "EU:"
+				},
+				{
+					"@id": "EP:"
+				}
+			]
+		},
+		"EU:DIRECTIVE_2022-2555": {
+			"@id": "EU:DIRECTIVE_2022-2555",
+			"@type": "EU:Directive",
+			"rdfs:label": {
+				"@value": "DIRECTIVE (EU) 2022/2555 (NIS 2 Directive)",
+				"@language": "en"
+			},
+			"dct:description": {
+				"@value": "DIRECTIVE (EU) 2022/2555 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL\r\nof 14 December 2022\r\non measures for a high common level of cybersecurity across the Union, amending Regulation (EU)\r\nNo 910/2014 and Directive (EU) 2018/1972, and repealing Directive (EU) 2016/1148 (NIS 2 Directive)",
+				"@language": "en"
+			},
+			"rdfs:comment": {
+				"@value": "EEA relevance",
+				"@language": "en"
+			},
+			"dct:issued": {
+				"@value": "2022-12-14",
+				"@type": "xsd:date"
+			},
+			"EU:amends": [
+				{
+					"@id": "EU:DIRECTIVE_2018-1972"
+				},
+				{
+					"@id": "EU:REGULATION_910-2014"
+				}
+			],
+			"EU:repeals": {
+				"@id": "EU:DIRECTIVE_2016-1148"
+			},
+			"rdfs:seeAlso": {
+				"@value": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj",
+				"@type": "xsd:anyURI"
+			},
+			"rdfs:isDefinedBy": [
+				{
+					"@id": "EU:"
+				},
+				{
+					"@id": "EP:"
+				}
+			]
+		},
+		"EP:": {
+			"@id": "EP:",
+			"@type": "org:Organization",
+			"rdfs:label": [
+				{
+					"@value": "European Parliament",
+					"@language": "en"
+				},
+				{
+					"@value": "Europäisches Parlament",
+					"@language": "de"
+				}
+			],
+			"skos:prefLabel": {
+				"@value": "European Parliament",
+				"@type": "xsd:string"
+			},
+			"org:subOrganizationOf": {
+				"@id": "EU:"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "EU:"
+			}
+		},
+		"https://www.consilium.europa.eu/": {
+			"@id": "https://www.consilium.europa.eu/",
+			"@type": "org:Organization",
+			"rdfs:label": [
+				{
+					"@value": "European Parliament",
+					"@language": "en"
+				},
+				{
+					"@value": "Europäisches Parlament",
+					"@language": "de"
+				}
+			],
+			"skos:prefLabel": {
+				"@value": "European Parliament",
+				"@type": "xsd:string"
+			},
+			"org:subOrganizationOf": {
+				"@id": "EU:"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "EU:"
+			}
+		},
+		"EC:": {
+			"@id": "EC:",
+			"@type": "org:Organization",
+			"rdfs:label": [
+				{
+					"@value": "European Commission",
+					"@language": "en"
+				},
+				{
+					"@value": "Europäische Kommission",
+					"@language": "de"
+				}
+			],
+			"skos:prefLabel": {
+				"@value": "European Commission",
+				"@language": "en"
+			},
+			"skos:altLabel": "EC",
+			"org:subOrganizationOf": {
+				"@id": "EU:"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "EU:"
+			}
+		},
+		"https://github.com/nicosResearchAndDevelopment/NIS2/": {
+			"@id": "https://github.com/nicosResearchAndDevelopment/NIS2/",
+			"@type": [
+				"voaf:Vocabulary",
+				"owl:Ontology"
+			],
+			"skos:prefLabel": {
+				"@value": "European Network and Information Security legislation, NIS2",
+				"@type": "xsd:string"
+			},
+			"rdfs:label": {
+				"@value": "European Network and Information Security legislation, NIS2",
+				"@language": "en"
+			},
+			"dct:title": {
+				"@value": "Model for NIS2",
+				"@language": "en"
+			},
+			"dct:description": {
+				"@value": "",
+				"@language": "en"
+			},
+			"dct:creator": {
+				"@id": "https://jlangkau.solidweb.org/"
+			},
+			"dct:publisher": {
+				"@id": "https://www.nicos-ag.com"
+			},
+			"dct:created": {
+				"@value": "2023-02-19",
+				"@type": "xsd:date"
+			},
+			"owl:versionInfo": "1.0.0",
+			"vann:preferredNamespaceUri": {
+				"@value": "https://github.com/nicosResearchAndDevelopment/NIS2/",
+				"@type": "xsd:anyURI"
+			},
+			"vann:preferredNamespacePrefix": "nis2:",
+			"void:vocabulary": [
+				{
+					"@id": "vann:"
+				},
+				{
+					"@id": "void:"
+				},
+				{
+					"@id": "voaf:"
+				},
+				{
+					"@id": "dct:"
+				}
+			],
+			"skos:broader": {
+				"@id": "EU:DIRECTIVE_2018-1972"
+			},
+			"rdfs:seeAlso": {
+				"@id": "https://github.com/nicosResearchAndDevelopment/NIS2/"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://jlangkau.solidweb.org/"
+			}
+		},
+		"nis2:Article": {
+			"@id": "nis2:Article",
+			"@type": "owl:Class",
+			"skos:notation": {
+				"@value": "Article",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Article",
+				"@type": "xsd:string"
+			},
+			"rdfs:label": [
+				{
+					"@value": "Article",
+					"@language": "en"
+				},
+				{
+					"@value": "Artikel",
+					"@language": "de"
+				}
+			],
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:article": {
+			"@id": "nis2:article",
+			"@type": "owl:ObjectProperty",
+			"rdfs:label": [
+				{
+					"@value": "Article",
+					"@language": "en"
+				},
+				{
+					"@value": "Artikel",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "Article",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Article",
+				"@type": "xsd:string"
+			},
+			"rdfs:domain": {
+				"@id": "nis2:Compliance"
+			},
+			"rdfs:range": {
+				"@id": "nis2:Article"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Article-10": {
+			"@id": "nis2:Article-10",
+			"@type": [
+				"skos:Concept",
+				"nis2:Article"
+			],
+			"rdfs:label": [
+				{
+					"@value": "Article 10",
+					"@language": "en"
+				},
+				{
+					"@value": "Artikel 10",
+					"@language": "de"
+				}
+			],
+			"dct:description": {
+				"@value": "Computer security incident response teams (CSIRTs)",
+				"@language": "en"
+			},
+			"nis2:compliant": {
+				"@id": "nis2:Article-10-Compliance"
+			},
+			"skos:notation": {
+				"@value": "Article-10",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Article 10",
+				"@type": "xsd:string"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Compliance": {
+			"@id": "nis2:Compliance",
+			"@type": "owl:Class",
+			"rdfs:label": [
+				{
+					"@value": "Compliance",
+					"@language": "en"
+				},
+				{
+					"@value": "Regelkonformität",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "Compliance",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Compliance",
+				"@type": "xsd:string"
+			},
+			"skos:narrower": {
+				"@id": "nis2:Article-10-Compliance"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:compliant": {
+			"@id": "nis2:compliant",
+			"@type": "owl:ObjectProperty",
+			"rdfs:label": [
+				{
+					"@value": "Compliant",
+					"@language": "en"
+				},
+				{
+					"@value": "Regelkonform",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "compliant",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Compliant",
+				"@type": "xsd:string"
+			},
+			"rdfs:domain": [
+				{
+					"@id": "nis2:Article"
+				},
+				{
+					"@id": "nis2:Agent"
+				}
+			],
+			"rdfs:range": {
+				"@id": "nis2:Compliance"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Article-10-Compliance": {
+			"@id": "nis2:Article-10-Compliance",
+			"@type": [
+				"skos:Concept",
+				"nis2:Compliance"
+			],
+			"rdfs:label": [
+				{
+					"@value": "Article 10 Compliance",
+					"@language": "en"
+				},
+				{
+					"@value": "Artikel 10 Regelkonformität",
+					"@language": "de"
+				}
+			],
+			"nis2:article": {
+				"@id": "nis2:Article-10"
+			},
+			"skos:notation": {
+				"@value": "Article-10-Compliance",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Article 10 Compliance",
+				"@type": "xsd:string"
+			},
+			"skos:broader": {
+				"@id": "nis2:Compliance"
+			},
+			"skos:related": {
+				"@id": "nis2:Article-10"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Article-10-MemberState-Compliance": {
+			"@id": "nis2:Article-10-MemberState-Compliance",
+			"@type": [
+				"skos:Concept",
+				"nis2:Compliance"
+			],
+			"rdfs:label": [
+				{
+					"@value": "Article 10 \"Member State\" Compliance",
+					"@language": "en"
+				},
+				{
+					"@value": "Artikel 10 \"Mitgliedstaat\"-Regelkonformität",
+					"@language": "de"
+				}
+			],
+			"nis2:article": {
+				"@id": "nis2:Article-10"
+			},
+			"skos:notation": {
+				"@value": "Article-10-MemberState-Compliance",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Article 10 \"Member State\" Compliance",
+				"@type": "xsd:string"
+			},
+			"skos:broader": {
+				"@id": "nis2:Article-10-Compliance"
+			},
+			"skos:related": [
+				{
+					"@id": "nis2:Article-10"
+				},
+				{
+					"@id": "nis2:MemberState"
+				}
+			],
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Article-10-CSIRT-Compliance": {
+			"@id": "nis2:Article-10-CSIRT-Compliance",
+			"@type": [
+				"skos:Concept",
+				"nis2:Compliance"
+			],
+			"rdfs:label": [
+				{
+					"@value": "Article 10 \"CSIRT\" Compliance",
+					"@language": "en"
+				},
+				{
+					"@value": "Artikel 10 \"CSIRT\"-Regelkonformität",
+					"@language": "de"
+				}
+			],
+			"nis2:article": {
+				"@id": "nis2:Article-10"
+			},
+			"skos:notation": {
+				"@value": "Article-10-CSIRT-Compliance",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Article 10 \"CSIRT\" Compliance",
+				"@type": "xsd:string"
+			},
+			"skos:broader": {
+				"@id": "nis2:Article-10-Compliance"
+			},
+			"skos:related": [
+				{
+					"@id": "nis2:Article-10"
+				},
+				{
+					"@id": "nis2:CSIRT"
+				}
+			],
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Criticality": {
+			"@id": "nis2:Criticality",
+			"@type": "owl:Class",
+			"rdfs:label": [
+				{
+					"@value": "Criticality",
+					"@language": "en"
+				},
+				{
+					"@value": "Kritikalität",
+					"@language": "en"
+				}
+			],
+			"skos:notation": {
+				"@value": "Criticality",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Criticality",
+				"@type": "xsd:string"
+			},
+			"skos:narrower": [
+				{
+					"@id": "nis2:Criticality_HIGH"
+				},
+				{
+					"@id": "nis2:Criticality_MID"
+				},
+				{
+					"@id": "nis2:Criticality_LOW"
+				},
+				{
+					"@id": "nis2:Criticality_OTHER"
+				}
+			],
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:criticality": {
+			"@id": "nis2:criticality",
+			"@type": "owl:ObjectProperty",
+			"rdfs:label": [
+				{
+					"@value": "Criticality",
+					"@language": "en"
+				},
+				{
+					"@value": "Kritikalität",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "criticality",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Criticality",
+				"@type": "xsd:string"
+			},
+			"rdfs:range": {
+				"@id": "nis2:Criticality"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Criticality_HIGH": {
+			"@id": "nis2:Criticality_HIGH",
+			"@type": [
+				"nis2:Criticality",
+				"owl:NamedIndividual"
+			],
+			"rdfs:label": [
+				{
+					"@value": "High criticality",
+					"@language": "en"
+				},
+				{
+					"@value": "Hohe Kritikalität",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "Criticality_HIGH",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "High criticality",
+				"@type": "xsd:string"
+			},
+			"skos:broader": {
+				"@id": "nis2:Criticality"
+			},
+			"skos:related": [
+				{
+					"@id": "nis2:Criticality_OTHER"
+				},
+				{
+					"@id": "xnis2:Criticality_MID"
+				},
+				{
+					"@id": "xnis2:Criticality_LOW"
+				}
+			],
+			"rdfs:comment": {
+				"@value": "See also (\"ANNEX I, SECTORS OF HIGH CRITICALITY\"): <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-143-1>.",
+				"@language": "en"
+			},
+			"rdfs:seeAlso": {
+				"@id": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-143-1"
+			}
+		},
+		"nis2:Criticality_OTHER": {
+			"@id": "nis2:Criticality_OTHER",
+			"@type": [
+				"nis2:Criticality",
+				"owl:NamedIndividual"
+			],
+			"rdfs:label": [
+				{
+					"@value": "Other criticality",
+					"@language": "en"
+				},
+				{
+					"@value": "Weitere Kritikalität",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "Criticality_OTHER",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Other criticality",
+				"@type": "xsd:string"
+			},
+			"skos:broader": {
+				"@id": "nis2:Criticality"
+			},
+			"skos:related": [
+				{
+					"@id": "nis2:Criticality_HIGH"
+				},
+				{
+					"@id": "xnis2:Criticality_MID"
+				},
+				{
+					"@id": "xnis2:Criticality_LOW"
+				}
+			],
+			"rdfs:comment": {
+				"@value": "See also (\"ANNEX II, OTHER CRITICAL SECTORS\"): <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-148-1>.",
+				"@language": "en"
+			},
+			"rdfs:seeAlso": {
+				"@id": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-148-1"
+			}
+		},
+		"nis2:Actor": {
+			"@id": "nis2:Actor",
+			"@type": "owl:Class",
+			"rdfs:label": [
+				{
+					"@value": "Actor",
+					"@language": "en"
+				},
+				{
+					"@value": "Akteur",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "Actor",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Actor",
+				"@type": "xsd:string"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Agent": {
+			"@id": "nis2:Agent",
+			"@type": "owl:Class",
+			"rdfs:subClassOf": {
+				"@id": "nis2:Actor"
+			},
+			"rdfs:label": [
+				{
+					"@value": "Agent",
+					"@language": "en"
+				},
+				{
+					"@value": "Agent",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "Agent",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Agent",
+				"@type": "xsd:string"
+			},
+			"rdfs:comment": {
+				"@value": "So, instances of 'nis2:Actor' are Participants of given Eco-System or Data Space...",
+				"@language": "en"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:agent": {
+			"@id": "nis2:agent",
+			"@type": "owl:ObjectProperty",
+			"rdfs:label": [
+				{
+					"@value": "Agent",
+					"@language": "en"
+				},
+				{
+					"@value": "Agent",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "agent",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Agent",
+				"@type": "xsd:string"
+			},
+			"rdfs:range": {
+				"@id": "nis2:Agent"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:CSIRT": {
+			"@id": "nis2:CSIRT",
+			"@type": "owl:Class",
+			"rdfs:subClassOf": {
+				"@id": "nis2:Agent"
+			},
+			"rdfs:label": [
+				{
+					"@value": "CSIRT",
+					"@language": "en"
+				},
+				{
+					"@value": "CSIRT",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "CSIRT",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "CSIRT",
+				"@type": "xsd:string"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Institution": {
+			"@id": "nis2:Institution",
+			"@type": "owl:Class",
+			"rdfs:subClassOf": {
+				"@id": "nis2:Agent"
+			},
+			"rdfs:label": [
+				{
+					"@value": "Institution",
+					"@language": "en"
+				},
+				{
+					"@value": "Institution",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "Institution",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Institution",
+				"@type": "xsd:string"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:MemberState": {
+			"@id": "nis2:MemberState",
+			"@type": "owl:Class",
+			"rdfs:subClassOf": [
+				{
+					"@id": "nis2:Institution"
+				},
+				{
+					"@id": "nis2:Agent"
+				}
+			],
+			"rdfs:label": [
+				{
+					"@value": "Member state",
+					"@language": "en"
+				},
+				{
+					"@value": "Mitgliedstaat",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "MemberState",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Member State",
+				"@type": "xsd:string"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Representative": {
+			"@id": "nis2:Representative",
+			"@type": "owl:Class",
+			"rdfs:subClassOf": [
+				{
+					"@id": "nis2:Institution"
+				},
+				{
+					"@id": "nis2:Agent"
+				}
+			],
+			"rdfs:label": [
+				{
+					"@value": "Representative",
+					"@language": "en"
+				},
+				{
+					"@value": "Repräsentant",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "Representative",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Representative",
+				"@type": "xsd:string"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Sector": {
+			"@id": "nis2:Sector",
+			"@type": "owl:Class",
+			"rdfs:label": [
+				{
+					"@value": "Sector",
+					"@language": "en"
+				},
+				{
+					"@value": "Sektor",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "Sector",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Sector",
+				"@type": "xsd:string"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:sector": {
+			"@id": "nis2:sector",
+			"@type": "owl:ObjectProperty",
+			"rdfs:label": [
+				{
+					"@value": "Sector",
+					"@language": "en"
+				},
+				{
+					"@value": "Sector",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "sector",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Sector",
+				"@type": "xsd:string"
+			},
+			"rdfs:range": {
+				"@id": "nis2:Sector"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:SubSector": {
+			"@id": "nis2:SubSector",
+			"@type": "owl:Class",
+			"rdfs:subClassOf": {
+				"@id": "nis2:Sector"
+			},
+			"rdfs:label": [
+				{
+					"@value": "Sub-sector",
+					"@language": "en"
+				},
+				{
+					"@value": "Sub-Sektor",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "SubSector",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "SubSector",
+				"@type": "xsd:string"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:subSector": {
+			"@id": "nis2:subSector",
+			"@type": "owl:ObjectProperty",
+			"owl:inverseOf": {
+				"@id": "nis2:subSectorOf"
+			},
+			"rdfs:label": [
+				{
+					"@value": "Sub-sector",
+					"@language": "en"
+				},
+				{
+					"@value": "Sub-Sektor",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "subSector",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "subSector",
+				"@type": "xsd:string"
+			},
+			"rdfs:domain": {
+				"@id": "nis2:Sector"
+			},
+			"rdfs:range": {
+				"@id": "nis2:SubSector"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:subSectorOf": {
+			"@id": "nis2:subSectorOf",
+			"@type": "owl:ObjectProperty",
+			"owl:inverseOf": {
+				"@id": "nis2:subSector"
+			},
+			"rdfs:label": [
+				{
+					"@value": "Sub-sector of",
+					"@language": "en"
+				},
+				{
+					"@value": "Sub-Sektor von",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "subSectorOf",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "subSectorOf",
+				"@type": "xsd:string"
+			},
+			"rdfs:domain": {
+				"@id": "nis2:SubSector"
+			},
+			"rdfs:range": [
+				{
+					"@id": "nis2:SubSector"
+				},
+				{
+					"@id": "nis2:Sector"
+				}
+			],
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Energy_Sector": {
+			"@id": "nis2:Energy_Sector",
+			"@type": [
+				"nis2:Sector",
+				"owl:NamedIndividual"
+			],
+			"rdfs:label": [
+				{
+					"@value": "Energy Sector",
+					"@language": "en"
+				},
+				{
+					"@value": "Energie Sektor",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "Energy_Sector",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Energy Sector",
+				"@type": "xsd:string"
+			},
+			"nis2:criticality": {
+				"@id": "nis2:Criticality_HIGH"
+			},
+			"nis2:subSector": [
+				{
+					"@id": "nis2:Energy-Electricity_Sector"
+				},
+				{
+					"@id": "nis2:Energy-DistrictHeatingAndCooling_Sector"
+				}
+			],
+			"skos:narrower": [
+				{
+					"@id": "nis2:Energy-Electricity_Sector"
+				},
+				{
+					"@id": "nis2:Energy-DistrictHeatingAndCooling_Sector"
+				}
+			],
+			"rdfs:seeAlso": {
+				"@id": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-143-1"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Energy-Electricity_Sector": {
+			"@id": "nis2:Energy-Electricity_Sector",
+			"@type": [
+				"nis2:SubSector",
+				"owl:NamedIndividual"
+			],
+			"rdfs:label": [
+				{
+					"@value": "Electricity Sector (Energy)",
+					"@language": "en"
+				},
+				{
+					"@value": "Elektrizität-Sector (Energy)",
+					"@language": "de"
+				}
+			],
+			"dct:description": {
+				"@value": "- Electricity undertakings as defined in Article 2, point (57), of Directive (EU) 2019/944 of the European Parliament and of the Council (1), which carry out the function of ‘supply’ as defined in Article 2, point (12), of that Directive\r\n- Distribution system operators as defined in Article 2, point (29), of Directive (EU) 2019/944\r\n- Transmission system operators as defined in Article 2, point (35), of Directive (EU) 2019/944\r\n- Producers as defined in Article 2, point (38), of Directive (EU) 2019/944\r\n- Nominated electricity market operators as defined in Article 2, point (8), of Regulation (EU) 2019/943 of the European Parliament and of the Council (2)\r\n- Market participants as defined in Article 2, point (25), of Regulation (EU) 2019/943 providing aggregation, demand response or energy storage services as defined in Article 2, points (18), (20) and (59), of Directive (EU) 2019/944\r\n- Operators of a recharging point that are responsible for the management and operation of a recharging point, which provides a recharging service to end users, including in the name and on behalf of a mobility service provider",
+				"@language": "en"
+			},
+			"skos:notation": {
+				"@value": "Energy-Electricity_Sector",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Energy-Electricity Sector",
+				"@type": "xsd:string"
+			},
+			"nis2:criticality": {
+				"@id": "nis2:Criticality_HIGH"
+			},
+			"nis2:sector": {
+				"@id": "nis2:Energy_Sector"
+			},
+			"skos:broader": {
+				"@id": "nis2:Energy_Sector"
+			},
+			"rdfs:seeAlso": {
+				"@id": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-143-1"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Energy-DistrictHeatingAndCooling_Sector": {
+			"@id": "nis2:Energy-DistrictHeatingAndCooling_Sector",
+			"@type": [
+				"nis2:SubSector",
+				"owl:NamedIndividual"
+			],
+			"rdfs:label": {
+				"@value": "District Heating and Cooling Sector (Energy)",
+				"@language": "en"
+			},
+			"dct:description": {
+				"@value": "- Operators of district heating or district cooling as defined in Article 2, point (19), of Directive (EU) 2018/2001 of the European Parliament and of the Council (3)",
+				"@language": "en"
+			},
+			"skos:notation": {
+				"@value": "Energy-DistrictHeatingAndCooling_Sector",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "District Heating and Cooling Sector (Energy)",
+				"@type": "xsd:string"
+			},
+			"nis2:criticality": {
+				"@id": "nis2:Criticality_HIGH"
+			},
+			"nis2:subSectorOf": {
+				"@id": "nis2:Energy_Sector"
+			},
+			"skos:broader": {
+				"@id": "nis2:Energy_Sector"
+			},
+			"rdfs:seeAlso": {
+				"@id": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-143-1"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Transport_Sector": {
+			"@id": "nis2:Transport_Sector",
+			"@type": [
+				"nis2:Sector",
+				"owl:NamedIndividual"
+			],
+			"rdfs:label": {
+				"@value": "Transport Sector",
+				"@language": "en"
+			},
+			"skos:notation": {
+				"@value": "Transport_Sector",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Transport Sector",
+				"@type": "xsd:string"
+			},
+			"nis2:criticality": {
+				"@id": "nis2:Criticality_HIGH"
+			},
+			"nis2:subSector": {
+				"@id": "nis2:Transport-Air_Sector"
+			},
+			"skos:narrower": {
+				"@id": "nis2:Transport-Air_Sector"
+			},
+			"rdfs:seeAlso": {
+				"@id": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-143-1"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Transport-Air_Sector": {
+			"@id": "nis2:Transport-Air_Sector",
+			"@type": [
+				"nis2:SubSector",
+				"owl:NamedIndividual"
+			],
+			"rdfs:label": {
+				"@value": "Air Sector (Transport)",
+				"@language": "en"
+			},
+			"dct:description": {
+				"@value": "- Air carriers as defined in Article 3, point (4), of Regulation (EC) No 300/2008 used for commercial purposes\r\n- Airport managing bodies as defined in Article 2, point (2), of Directive 2009/12/EC of the European Parliament and of the Council (6), airports as defined in Article 2, point (1), of that Directive, including the core airports listed in Section 2 of Annex II to Regulation (EU) No 1315/2013 of the European Parliament and of the Council (7), and entities operating ancillary installations contained within airports\r\n- Traffic management control operators providing air traffic control (ATC) services as defined in Article 2, point (1), of Regulation (EC) No 549/2004 of the European Parliament and of the Council (8)",
+				"@language": "en"
+			},
+			"skos:notation": {
+				"@value": "Transport-Air_Sector",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Air Sector (Transport)",
+				"@type": "xsd:string"
+			},
+			"nis2:criticality": {
+				"@id": "nis2:Criticality_HIGH"
+			},
+			"nis2:subSectorOf": {
+				"@id": "nis2:Transport_Sector"
+			},
+			"skos:broader": {
+				"@id": "nis2:Transport_Sector"
+			},
+			"rdfs:seeAlso": {
+				"@id": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-143-1"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Manufacturing_Sector": {
+			"@id": "nis2:Manufacturing_Sector",
+			"@type": [
+				"nis2:Sector",
+				"owl:NamedIndividual"
+			],
+			"rdfs:label": {
+				"@value": "Manufacturing Sector",
+				"@language": "en"
+			},
+			"skos:notation": {
+				"@value": "Manufacturing_Sector",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Manufacturing Sector",
+				"@type": "xsd:string"
+			},
+			"nis2:criticality": {
+				"@id": "nis2:Criticality_OTHER"
+			},
+			"skos:narrower": {
+				"@id": "nis2:Manufacturing-ElectricalEquipment_Sector"
+			},
+			"rdfs:comment": {
+				"@value": "ANNEX II, OTHER CRITICAL SECTORS",
+				"@language": "en"
+			},
+			"rdfs:seeAlso": {
+				"@id": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-148-1"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"nis2:Manufacturing-ElectricalEquipment_Sector": {
+			"@id": "nis2:Manufacturing-ElectricalEquipment_Sector",
+			"@type": [
+				"nis2:SubSector",
+				"owl:NamedIndividual"
+			],
+			"rdfs:label": {
+				"@value": "Air Sector (Manufacturing)",
+				"@language": "en"
+			},
+			"dct:description": {
+				"@value": "Manufacture of electrical equipment",
+				"@language": "en"
+			},
+			"skos:notation": {
+				"@value": "Manufacturing-ElectricalEquipment_Sector",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "ElectricalEquipment_Sector Sector (Transport)",
+				"@type": "xsd:string"
+			},
+			"nis2:criticality": {
+				"@id": "nis2:Criticality_HIGH"
+			},
+			"nis2:subSectorOf": {
+				"@id": "nis2:Manufacturing_Sector"
+			},
+			"skos:broader": {
+				"@id": "nis2:Manufacturing_Sector"
+			},
+			"rdfs:comment": {
+				"@value": "ANNEX II, OTHER CRITICAL SECTORS",
+				"@language": "en"
+			},
+			"rdfs:seeAlso": {
+				"@id": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-148-1"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "nis2:"
+			}
+		},
+		"xnis2:Inbox": {
+			"@id": "xnis2:Inbox",
+			"@type": "owl:Class",
+			"rdfs:subClassOf": [
+				{
+					"@id": "entity:ServiceInstance"
+				},
+				{
+					"@id": "prov:SoftwareAgent"
+				},
+				{
+					"@id": "nis2:Agent"
+				},
+				{
+					"@type": "owl:Restriction",
+					"owl:maxCardinality": {
+						"@value": "0",
+						"@type": "xsd:nonNegativeInteger"
+					},
+					"owl:onProperty": {
+						"@id": "xnis2:inbox"
+					},
+					"rdfs:comment": {
+						"@value": "TODO: this should be done by SHACL.",
+						"@language": "en"
+					}
+				}
+			],
+			"rdfs:label": [
+				{
+					"@value": "Inbox",
+					"@language": "en"
+				},
+				{
+					"@value": "Inbox",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "inbox",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Inbox",
+				"@type": "xsd:string"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "xnis2:"
+			}
+		},
+		"xnis2:inbox": {
+			"@id": "xnis2:inbox",
+			"@type": "rdf:Property",
+			"rdfs:label": [
+				{
+					"@value": "Inbox",
+					"@language": "en"
+				},
+				{
+					"@value": "Inbox",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "inbox",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Inbox",
+				"@type": "xsd:string"
+			},
+			"rdfs:domain": {
+				"@type": "owl:Class",
+				"owl:unionOf": {
+					"@list": [
+						{
+							"@id": "nis2:Agent"
+						}
+					]
+				}
+			},
+			"rdfs:comment": {
+				"@value": "'rdfs:range' :: intentionally left open (ILO). Example:\r\nnis2:inbox \"jlangkau@nicos-ag.com\"^^xsd:string ;\r\nnis2:inbox \"https://www.nicos-cdc.com/nCDC/inbox/\"^^xsd:anyURI ;\r\nnis2:inbox <https://www.nicos-cdc.com/nCDC/inbox/> ;\r\nnis2:inbox \"+49 251 4242424242424242424242424242424\"^^xsd:string ;\r\nnis2:inbox \"Jörg Langkau, Robert-Bosch-Straße 17a, 48153 Münster, Germany\"^^xsd:string ;\r\nnis2:inbox [ a http://www.w3.org/ns/prov#Location ;\r\n                rdfs:seeAlso \"https://cdn.standards.iteh.ai/samples/70742/cfb5dda4d42646ce8de82699d2073343/ISO-19112-2019.pdf\" ;\r\n          ]  ;\r\n",
+				"@language": "en"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "xnis2:"
+			}
+		},
+		"xnis2:Notifier": {
+			"@id": "xnis2:Notifier",
+			"@type": "owl:Class",
+			"rdfs:subClassOf": [
+				{
+					"@id": "entity:ServiceInstance"
+				},
+				{
+					"@id": "prov:SoftwareAgent"
+				},
+				{
+					"@id": "nis2:Agent"
+				},
+				{
+					"@type": "owl:Restriction",
+					"owl:maxCardinality": {
+						"@value": "0",
+						"@type": "xsd:nonNegativeInteger"
+					},
+					"owl:onProperty": {
+						"@id": "xnis2:notifier"
+					},
+					"rdfs:comment": {
+						"@value": "TODO: this should be done by SHACL.",
+						"@language": "en"
+					}
+				}
+			],
+			"rdfs:label": [
+				{
+					"@value": "Notifier",
+					"@language": "en"
+				},
+				{
+					"@value": "Notifier",
+					"@language": "de"
+				}
+			],
+			"dct:description": {
+				"@value": "Notification (a process) Client, sending a message to nis2:Agent´s inbox.",
+				"@language": "en"
+			},
+			"skos:notation": {
+				"@value": "Notifier",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Notifier",
+				"@type": "xsd:string"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "xnis2:"
+			}
+		},
+		"xnis2:notifier": {
+			"@id": "xnis2:notifier",
+			"@type": "rdf:Property",
+			"rdfs:label": [
+				{
+					"@value": "Notifier",
+					"@language": "en"
+				},
+				{
+					"@value": "Notifier",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "notifier",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Notifier",
+				"@type": "xsd:string"
+			},
+			"rdfs:domain": {
+				"@type": "owl:Class",
+				"owl:unionOf": {
+					"@list": [
+						{
+							"@id": "nis2:Agent"
+						}
+					]
+				}
+			},
+			"rdfs:comment": {
+				"@value": "'rdfs:range' :: intentionally left open (ILO). Example:\r\nnis2:notifier \"incident-from-jlangkau@nicos-ag.com\"^^xsd:string ;\r\nnis2:notifier <https://www.nicos-cdc.com/nCDC/nis/notifier/> ; ## REM: an instance of 'xnis2:Notifier'\r\nnis2:notifier \"+49 251 4242424242424242424242424242424\"^^xsd:string ;\r\nnis2:notifier \"Jörg Langkau, Robert-Bosch-Straße 17a, 48153 Münster, Germany\"^^xsd:string ;\r\n",
+				"@language": "en"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "xnis2:"
+			}
+		},
+		"xnis2:Criticality_MID": {
+			"@id": "xnis2:Criticality_MID",
+			"@type": [
+				"nis2:Criticality",
+				"owl:NamedIndividual"
+			],
+			"rdfs:label": [
+				{
+					"@value": "Mid criticality",
+					"@language": "en"
+				},
+				{
+					"@value": "Mittlere Kritikalität",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "Criticality_MID",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Mid criticality",
+				"@type": "xsd:string"
+			},
+			"skos:broader": {
+				"@id": "nis2:Criticality"
+			},
+			"skos:related": [
+				{
+					"@id": "xnis2:Criticality_MID"
+				},
+				{
+					"@id": "xnis2:Criticality_LOW"
+				},
+				{
+					"@id": "nis2:Criticality_OTHER"
+				}
+			],
+			"rdfs:isDefinedBy": {
+				"@id": "xnis2:"
+			}
+		},
+		"xnis2:Criticality_LOW": {
+			"@id": "xnis2:Criticality_LOW",
+			"@type": [
+				"nis2:Criticality",
+				"owl:NamedIndividual"
+			],
+			"rdfs:label": [
+				{
+					"@value": "Low criticality",
+					"@language": "en"
+				},
+				{
+					"@value": "Niedrige kritikalität",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "Criticality_LOW",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Low criticality",
+				"@type": "xsd:string"
+			},
+			"skos:broader": {
+				"@id": "nis2:Criticality"
+			},
+			"skos:related": [
+				{
+					"@id": "nis2:Criticality_HIGH"
+				},
+				{
+					"@id": "xnis2:Criticality_MID"
+				},
+				{
+					"@id": "xnis2:Criticality_LOW"
+				}
+			],
+			"rdfs:comment": {
+				"@value": "See also (\"ANNEX II, OTHER CRITICAL SECTORS\"): <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-148-1>",
+				"@language": "en"
+			},
+			"rdfs:seeAlso": {
+				"@id": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555#d1e32-148-1"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "xnis2:"
+			}
+		},
+		"xnis2:TrustList": {
+			"@id": "xnis2:TrustList",
+			"@type": "owl:Class",
+			"skos:notation": {
+				"@value": "TrustList",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Trust List",
+				"@type": "xsd:string"
+			},
+			"rdfs:label": {
+				"@value": "Trust List",
+				"@language": "en"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "xnis2:"
+			}
+		},
+		"xnis2:trustList": {
+			"@id": "xnis2:trustList",
+			"@type": "owl:ObjectProperty",
+			"rdfs:label": [
+				{
+					"@value": "Trust List",
+					"@language": "en"
+				},
+				{
+					"@value": "Trust List",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "trustList",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "Trust List",
+				"@type": "xsd:string"
+			},
+			"rdfs:domain": [
+				{
+					"@id": "nis2:MemberState"
+				},
+				{
+					"@id": "nis2:ListOfTrustLists"
+				}
+			],
+			"rdfs:range": {
+				"@id": "nis2:TrustList"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "xnis2:"
+			}
+		},
+		"xnis2:ListOfTrustLists": {
+			"@id": "xnis2:ListOfTrustLists",
+			"@type": "owl:Class",
+			"rdfs:label": [
+				{
+					"@value": "List of Trust Lists",
+					"@language": "en"
+				},
+				{
+					"@value": "Liste von Vertrauenslisten",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "ListOfTrustLists",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "List of Trust Lists",
+				"@type": "xsd:string"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "xnis2:"
+			}
+		},
+		"xnis2:listOfTrustLists": {
+			"@id": "xnis2:listOfTrustLists",
+			"@type": "owl:ObjectProperty",
+			"rdfs:label": [
+				{
+					"@value": "List of Trust Lists",
+					"@language": "en"
+				},
+				{
+					"@value": "Liste von Vertrauenslisten",
+					"@language": "de"
+				}
+			],
+			"skos:notation": {
+				"@value": "listOfTrustLists",
+				"@type": "xsd:string"
+			},
+			"skos:prefLabel": {
+				"@value": "List of Trust Lists",
+				"@type": "xsd:string"
+			},
+			"rdfs:domain": {
+				"@id": "nis2:MemberState"
+			},
+			"rdfs:range": {
+				"@id": "nis2:ListOfTrustLists"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "xnis2:"
+			}
+		},
+		"https://www.deutschland.de/": {
+			"@id": "https://www.deutschland.de/",
+			"@type": "nis2:MemberState",
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.deutschland.de/"
+			}
+		},
+		"https://www.bsi.bund.de/": {
+			"@id": "https://www.bsi.bund.de/",
+			"@type": "org:FormalOrganization",
+			"entity:actOnBehalf": {
+				"@id": "https://www.deutschland.de/"
+			},
+			"rdfs:label": {
+				"@value": "BSI",
+				"@language": "en"
+			},
+			"org:hasUnit": {
+				"@id": "https://www.bsi.bund.de/nis2/"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.bundesregierung.de/"
+			}
+		},
+		"https://www.bsi.bund.de/nis2/": {
+			"@id": "https://www.bsi.bund.de/nis2/",
+			"@type": [
+				"org:OrganizationalUnit",
+				"entity:Entity",
+				"nis2:Agent"
+			],
+			"rdfs:label": {
+				"@value": "NIS2",
+				"@type": "xsd:string"
+			},
+			"org:unitOf": {
+				"@id": "https://www.bsi.bund.de/"
+			},
+			"entity:actOnBehalf": {
+				"@id": "https://www.bsi.bund.de/"
+			},
+			"xnis2:trustList": {
+				"@id": "https://www.bsi.bund.de/nis2/trustlist/"
+			},
+			"xnis2:inbox": [
+				{
+					"@id": "https://www.bsi.bund.de/nis2/inbox/"
+				},
+				{
+					"rdf:type": {
+						"@id": "xsd:string"
+					},
+					"rdf:value": "vulnerability@bsi.bund.de",
+					"dct:description": "PGP (Vulnerability)\r\nPlease use the following PGP-Key for sending PGP-encrypted email to CERT-Bund:\r\npub   rsa4096/22B1A37C249BD09C 2024-01-10 [SC] [expires: 2025-01-31]\r\nuid           CERT-Bund Vulnerability (2024) vulnerability@bsi.bund.de\r\nsub   rsa4096/EDDEDFEFEF2EE374 2024-01-10 [E] [expires: 2025-01-31]\r\nKey fingerprint: 61D3 243D 3080 3E4F 5EEA BADB 22B1 A37C 249B D09C",
+					"rdfs:seeAlso": {
+						"@value": "https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Cyber-Sicherheitslage/Reaktion/CERT-Bund/Kontakt/kontakt_node.html",
+						"@type": "xsd:anyURI"
+					}
+				}
+			],
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.bsi.bund.de/"
+			}
+		},
+		"https://www.bsi.bund.de/nis2/trustlist/": {
+			"@id": "https://www.bsi.bund.de/nis2/trustlist/",
+			"@type": "xnis2:TrustList",
+			"nis2:agent": [
+				{
+					"@id": "https://www.nicos-cdc.com/nCDC/"
+				},
+				{
+					"@id": "https://www.nicos-cdc.com/nCDC/inbox/"
+				},
+				{
+					"@id": "https://www.nicos-cdc.com/nCDC/nis/notifier/"
+				}
+			],
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.bsi.bund.de/"
+			}
+		},
+		"https://www.bsi.bund.de/nis2/inbox/": {
+			"@id": "https://www.bsi.bund.de/nis2/inbox/",
+			"@type": [
+				"entity:ServiceInstance",
+				"prov:SoftwareAgent"
+			],
+			"entity:actOnBehalf": {
+				"@id": "https://www.bsi.bund.de/nis2/"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.bsi.bund.de/"
+			}
+		},
+		"https://www.bsi.bund.de/nis2/notifier/": {
+			"@id": "https://www.bsi.bund.de/nis2/notifier/",
+			"@type": [
+				"entity:ServiceInstance",
+				"prov:SoftwareAgent",
+				"xnis2:Notifier"
+			],
+			"entity:actOnBehalf": {
+				"@id": "https://www.bsi.bund.de/nis2/"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.bsi.bund.de/"
+			}
+		},
+		"https://www.nicos-ag.com/": {
+			"@id": "https://www.nicos-ag.com/",
+			"@type": [
+				"org:Organization",
+				"entity:LegalEntity"
+			],
+			"rdfs:label": {
+				"@value": "nicos AG",
+				"@type": "xsd:string"
+			},
+			"org:hasSubOrganization": {
+				"@id": "https://www.nicos-cdc.com/"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.nicos-ag.com/"
+			}
+		},
+		"https://www.nicos-cdc.com/": {
+			"@id": "https://www.nicos-cdc.com/",
+			"@type": [
+				"org:Organization",
+				"nis2:Agent",
+				"entity:Entity"
+			],
+			"rdfs:label": {
+				"@value": "nicos cyber defense GmbH",
+				"@type": "xsd:string"
+			},
+			"org:subOrganizationOf": {
+				"@id": "https://www.nicos-ag.com/"
+			},
+			"org:hasUnit": {
+				"@id": "https://www.nicos-cdc.com/nCDC/"
+			},
+			"xnis2:inbox": {
+				"rdf:type": {
+					"@id": "xsd:string"
+				},
+				"rdf:value": "contact@nicos-cdc.com"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.nicos-ag.com/"
+			}
+		},
+		"https://www.nicos-cdc.com/nCDC/": {
+			"@id": "https://www.nicos-cdc.com/nCDC/",
+			"@type": [
+				"org:OrganizationalUnit",
+				"nis2:Agent",
+				"entity:Entity"
+			],
+			"rdfs:label": {
+				"@value": "nicos cyber defense GmbH",
+				"@type": "xsd:string"
+			},
+			"org:unitOf": {
+				"@id": "https://www.nicos-cdc.com/"
+			},
+			"entity:actOnBehalf": {
+				"@id": "https://www.nicos-cdc.com/"
+			},
+			"xnis2:inbox": [
+				{
+					"rdf:type": {
+						"@id": "xsd:string"
+					},
+					"rdf:value": "contact@nicos-cdc.com"
+				},
+				{
+					"@value": "https://www.nicos-cdc.com/nCDC/inbox/index.html",
+					"@type": "xsd:anyURI"
+				},
+				{
+					"@id": "https://www.nicos-cdc.com/nCDC/inbox/"
+				}
+			],
+			"xnis2:notifier": {
+				"@id": "https://www.nicos-cdc.com/nCDC/nis/notifier/"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.nicos-cdc.com/"
+			}
+		},
+		"https://www.nicos-cdc.com/nCDC/inbox/index.html": {
+			"@id": "https://www.nicos-cdc.com/nCDC/inbox/index.html",
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.nicos-cdc.com/nCDC/"
+			}
+		},
+		"https://www.nicos-cdc.com/nCDC/inbox/": {
+			"@id": "https://www.nicos-cdc.com/nCDC/inbox/",
+			"@type": [
+				"entity:ServiceInstance",
+				"prov:SoftwareAgent",
+				"xnis2:Inbox"
+			],
+			"entity:actOnBehalf": {
+				"@id": "https://www.nicos-cdc.com/nCDC/"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.nicos-cdc.com/nCDC/"
+			}
+		},
+		"https://www.nicos-cdc.com/nCDC/nis/notifier/": {
+			"@id": "https://www.nicos-cdc.com/nCDC/nis/notifier/",
+			"@type": [
+				"entity:ServiceInstance",
+				"prov:SoftwareAgent",
+				"xnis2:Notifier"
+			],
+			"entity:actOnBehalf": {
+				"@id": "https://www.nicos-cdc.com/"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.nicos-cdc.com/nCDC/"
+			}
+		},
+		"https://www.bsi.bund.de/nis2/credential/99-99-99-99": {
+			"@id": "https://www.bsi.bund.de/nis2/credential/99-99-99-99",
+			"@type": "credential:Credential",
+			"credential:issuer": {
+				"@id": "https://www.bsi.bund.de/nis2/"
+			},
+			"credential:validFrom": {
+				"@value": "2024-02-17T00:00:00Z",
+				"@type": "xsd:dateTimeStamp"
+			},
+			"credential:validTo": {
+				"@value": "2024-02-18T00:00:00Z",
+				"@type": "xsd:dateTimeStamp"
+			},
+			"credential:credentialSubject": {
+				"@id": "https://www.bsi.bund.de/nis2/agent/nicos-cdc-ncdc"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.bsi.bund.de/nis2/"
+			}
+		},
+		"https://www.bsi.bund.de/nis2/agent/nicos-cdc-ncdc": {
+			"@id": "https://www.bsi.bund.de/nis2/agent/nicos-cdc-ncdc",
+			"@type": [
+				"credential:Subject",
+				"nis2:Agent"
+			],
+			"nis2:compliant": {
+				"@id": "nis2:Article-10-CSIRT-Compliance"
+			},
+			"xnis2:notifier": {
+				"@id": "https://www.bsi.bund.de/nis2/agent/nicos-cdc-ncdc#notifier"
+			},
+			"xnis2:inbox": {
+				"@id": "https://www.bsi.bund.de/nis2/agent/nicos-cdc-ncdc#inbox"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.bsi.bund.de/nis2/"
+			}
+		},
+		"https://www.bsi.bund.de/nis2/agent/nicos-cdc-ncdc#notifier": {
+			"@id": "https://www.bsi.bund.de/nis2/agent/nicos-cdc-ncdc#notifier",
+			"@type": [
+				"credential:Subject",
+				"nis2:Agent",
+				"xnis2:Notifier"
+			],
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.bsi.bund.de/nis2/"
+			}
+		},
+		"https://www.bsi.bund.de/nis2/agent/nicos-cdc-ncdc#inbox": {
+			"@id": "https://www.bsi.bund.de/nis2/agent/nicos-cdc-ncdc#inbox",
+			"@type": [
+				"credential:Subject",
+				"nis2:Agent",
+				"xnis2:Inbox"
+			],
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.bsi.bund.de/nis2/"
+			}
+		},
+		"https://www.bsi.bund.de/nis2/inbox/PUT/": {
+			"@id": "https://www.bsi.bund.de/nis2/inbox/PUT/",
+			"@type": "odrl:Asset",
+			"odrl:hasPolicy": {
+				"@id": "https://www.bsi.bund.de/nis2/policy/access/inbox/METHOD/PUT/"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.bsi.bund.de/nis2/"
+			}
+		},
+		"https://www.bsi.bund.de/nis2/policy/access/inbox/METHOD/PUT/": {
+			"@id": "https://www.bsi.bund.de/nis2/policy/access/inbox/METHOD/PUT/",
+			"@type": "odrl:Policy",
+			"odrl:permission": {
+				"@type": "odrl:Permission",
+				"odrl:assigner": {
+					"@id": "https://www.bsi.bund.de/nis2/"
+				},
+				"odrl:assignee": {
+					"@type": "odrl:PartyCollection",
+					"odrl:source": {
+						"@id": "https://www.nicos-cdc.com/nCDC/nis/notifier/"
+					},
+					"odrl:refinement": [
+						{
+							"@type": "odrl:Constraint",
+							"odrl:leftOperand": {
+								"@id": "rdf:type"
+							},
+							"odrl:operator": {
+								"@id": "odrl:eq"
+							},
+							"odrl:rightOperand": {
+								"@id": "nis2:Agent"
+							},
+							"odrl:dataType": {
+								"@id": "xsd:anyURI"
+							}
+						},
+						{
+							"@type": "odrl:Constraint",
+							"odrl:leftOperand": {
+								"@id": "nis2:compliant"
+							},
+							"odrl:operator": {
+								"@id": "odrl:isAnyOf"
+							},
+							"odrl:rightOperand": {
+								"@id": "nis2:Article-10-CSIRT-Compliance"
+							},
+							"odrl:dataType": {
+								"@id": "xsd:anyURI"
+							}
+						}
+					]
+				},
+				"odrl:target": {
+					"@id": "https://www.bsi.bund.de/nis2/inbox/PUT/"
+				},
+				"odrl:action": {
+					"@id": "odrl:use"
+				},
+				"odrl:duty": {
+					"odrl:action": {
+						"@id": "odrl:nextPolicy"
+					},
+					"odrl:target": {
+						"@id": "https://www.bsi.bund.de/nis2/policy/access/inbox/write/"
+					}
+				}
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.bsi.bund.de/nis2/"
+			}
+		},
+		"https://www.bsi.bund.de/nis2/policy/assignee/refinement/write/": {
+			"@id": "https://www.bsi.bund.de/nis2/policy/assignee/refinement/write/",
+			"@type": "odrl:PartyCollection",
+			"odrl:source": {
+				"@id": "https://www.nicos-cdc.com/nCDC/nis/notifier/"
+			},
+			"odrl:refinement": [
+				{
+					"@type": "odrl:Constraint",
+					"odrl:leftOperand": {
+						"@id": "rdf:type"
+					},
+					"odrl:operator": {
+						"@id": "odrl:eq"
+					},
+					"odrl:rightOperand": {
+						"@id": "nis2:Agent"
+					},
+					"odrl:dataType": {
+						"@id": "xsd:anyURI"
+					}
+				},
+				{
+					"@type": "odrl:Constraint",
+					"odrl:leftOperand": {
+						"@id": "nis2:compliant"
+					},
+					"odrl:operator": {
+						"@id": "odrl:isAnyOf"
+					},
+					"odrl:rightOperand": {
+						"@id": "nis2:Article-10-CSIRT-Compliance"
+					},
+					"odrl:dataType": {
+						"@id": "xsd:anyURI"
+					}
+				}
+			],
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.bsi.bund.de/nis2/"
+			}
+		},
+		"https://www.bsi.bund.de/nis2/policy/access/inbox/write/": {
+			"@id": "https://www.bsi.bund.de/nis2/policy/access/inbox/write/",
+			"@type": "odrl:Policy",
+			"odrl:permission": {
+				"@type": "odrl:Permission",
+				"odrl:assigner": {
+					"@id": "https://www.bsi.bund.de/nis2/"
+				},
+				"odrl:assignee": {
+					"@type": "odrl:PartyCollection",
+					"odrl:source": {
+						"@id": "https://www.nicos-cdc.com/nCDC/nis/notifier/"
+					},
+					"odrl:refinement": [
+						{
+							"@type": "odrl:Constraint",
+							"odrl:leftOperand": {
+								"@id": "rdf:type"
+							},
+							"odrl:operator": {
+								"@id": "odrl:eq"
+							},
+							"odrl:rightOperand": {
+								"@id": "nis2:Agent"
+							},
+							"odrl:dataType": {
+								"@id": "xsd:anyURI"
+							}
+						},
+						{
+							"@type": "odrl:Constraint",
+							"odrl:leftOperand": {
+								"@id": "nis2:compliant"
+							},
+							"odrl:operator": {
+								"@id": "odrl:isAnyOf"
+							},
+							"odrl:rightOperand": {
+								"@id": "nis2:Article-10-CSIRT-Compliance"
+							},
+							"odrl:dataType": {
+								"@id": "xsd:anyURI"
+							}
+						}
+					]
+				},
+				"odrl:target": {
+					"@type": "odrl:AssetCollection",
+					"odrl:source": {
+						"@id": "https://www.nicos-cdc.com/nCDC/nis/message/42-42-42-42"
+					},
+					"odrl:refinement": {
+						"@type": "odrl:Constraint",
+						"odrl:leftOperand": {
+							"@id": "nis2:sector"
+						},
+						"odrl:operator": {
+							"@id": "odrl:eq"
+						},
+						"odrl:rightOperand": {
+							"@id": "nis2:Energy-Electricity_Sector"
+						},
+						"odrl:dataType": {
+							"@id": "xsd:anyURI"
+						}
+					}
+				},
+				"odrl:action": {
+					"@id": "odrl:use"
+				}
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.bsi.bund.de/nis2/"
+			}
+		},
+		"https://www.nicos-cdc.com/nCDC/nis/message/42-42-42-42": {
+			"@id": "https://www.nicos-cdc.com/nCDC/nis/message/42-42-42-42",
+			"nis2:sector": {
+				"@id": "nis2:Energy-Electricity_Sector"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.nicos-cdc.com/nCDC/"
+			}
+		},
+		"https://www.nicos-cdc.com/nCDC/incident/42-43-44-45-46": {
+			"@id": "https://www.nicos-cdc.com/nCDC/incident/42-43-44-45-46",
+			"@type": "odrl:Asset",
+			"odrl:hasPolicy": {
+				"@id": "https://www.nicos-cdc.com/nCDC/policy/usage/incident/by-Article-10-CSIRT-Compliance/"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.nicos-cdc.com/nCDC/"
+			}
+		},
+		"https://www.nicos-cdc.com/nCDC/policy/usage/incident/by-Article-10-CSIRT-Compliance/": {
+			"@id": "https://www.nicos-cdc.com/nCDC/policy/usage/incident/by-Article-10-CSIRT-Compliance/",
+			"@type": "odrl:Policy",
+			"odrl:permission": {
+				"@type": "odrl:Permission",
+				"odrl:assigner": {
+					"@id": "https://www.nicos-cdc.com/nCDC/"
+				},
+				"odrl:assignee": {
+					"@type": "odrl:PartyCollection",
+					"odrl:source": {
+						"@value": "urn:assignee",
+						"@type": "xsd:anyURI"
+					},
+					"odrl:refinement": {
+						"@type": "odrl:Constraint",
+						"odrl:leftOperand": {
+							"@id": "nis2:compliant"
+						},
+						"odrl:operator": {
+							"@id": "odrl:isPartOf"
+						},
+						"odrl:rightOperand": {
+							"@id": "nis2:Article-10-CSIRT-Compliance"
+						},
+						"odrl:dataType": {
+							"@id": "xsd:anyURI"
+						}
+					}
+				}
+			},
+			"odrl:action": {
+				"@id": "odrl:use"
+			},
+			"rdfs:isDefinedBy": {
+				"@id": "https://www.nicos-cdc.com/nCDC/"
+			}
+		}
+	}
+}

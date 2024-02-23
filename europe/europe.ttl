@@ -1,0 +1,246 @@
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix org:     <http://www.w3.org/ns/org#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix profile: <http://www.w3.org/ns/dx/prof/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role:    <http://www.w3.org/ns/dx/prof/role/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:    <http://purl.org/vocab/vann/> .
+@prefix voaf:    <http://purl.org/vocommons/voaf#> .
+@prefix void:    <http://rdfs.org/ns/void#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:     <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix entity:  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix nis2:     <https://github.com/nicosResearchAndDevelopment/NIS2/> .
+@prefix xnis2:    <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555/xnis2#> .
+
+@prefix EU:      <https://european-union.europa.eu/> .
+@prefix EP:      <https://www.europarl.europa.eu/> .
+@prefix EC:      <https://commission.europa.eu/> .
+
+EU:
+    a                      org:FormalOrganization ;
+    skos:prefLabel         "European Union"@en ;
+    skos:altLabel          "EU" ;
+    ## region organization
+    org:hasSubOrganization EP: ;
+    org:hasSubOrganization <https://www.consilium.europa.eu/> ;
+    org:hasSubOrganization EC: ;
+    ## endregion organization
+    ## region EU:memberState, ORDER: alpha
+    EU:memberState         <https://european-union.europa.eu/principles-countries-history/country-profiles/germany_en> ;
+    EU:memberState         <https://european-union.europa.eu/principles-countries-history/country-profiles/france_en> ;
+    rdfs:seeAlso           "https://european-union.europa.eu/principles-countries-history/country-profiles_en"^^xsd:anyURI ;
+    ## endregion EU:memberState
+    ## region EU:regulation
+    EU:regulation          EU:REGULATION_910-2014 ;
+    ## endregion EU:regulation
+    ## region EU:directive
+    EU:directive           EU:DIRECTIVE_2016-1148 ;
+    EU:directive           EU:DIRECTIVE_2018-1972 ;
+    EU:directive           EU:DIRECTIVE_2022-2555 ;
+    ## endregion EU:directive
+    rdfs:isDefinedBy       EU: .
+
+## region MemberState
+EU:MemberState
+    a                owl:Class ;
+    rdfs:label       "Member state"@en ;
+    rdfs:label       "Mitgliedstaat"@de ;
+    skos:notation    "MemberState"^^xsd:string ;
+    skos:prefLabel   "Member state"^^xsd:string ;
+    rdfs:isDefinedBy EU: .
+
+EU:memberState
+    a                owl:ObjectProperty ;
+    rdfs:label       "Member state"@en ;
+    rdfs:label       "Mitgliedstaat"@de ;
+    skos:notation    "memberState"^^xsd:string ;
+    skos:prefLabel   "Member state"^^xsd:string ;
+    rdfs:domain      EU: ;
+    rdfs:range       EU:MemberState ; ## CARD [0..1]
+    rdfs:isDefinedBy EU: .
+
+EU:governance
+    a                owl:ObjectProperty ;
+    rdfs:label       "Member state"@en ;
+    rdfs:label       "Mitgliedstaat"@de ;
+    skos:notation    "memberState"^^xsd:string ;
+    skos:prefLabel   "Member state"^^xsd:string ;
+    rdfs:domain      EU:MemberState ;
+    rdfs:range       xsd:anyURI ; ## CARD [0..1]
+    rdfs:isDefinedBy EU: .
+
+## region MemberState Individuals
+
+## region MemberState Individuals       DE
+<https://european-union.europa.eu/principles-countries-history/country-profiles/germany_en>
+    a                EU:MemberState ;
+    rdfs:label       "Germany"@en ;
+    rdfs:label       "Deutschland"@de ;
+    skos:prefLabel   "Bundesrepublik Deutschland"^^xsd:string ;
+    EU:governance    "https://www.bundesregierung.de/"^^xsd:anyURI ;
+    rdfs:seeAlso     "https://www.deutschland.de/"^^xsd:anyURI ;
+    rdfs:seeAlso     "https://en.wikipedia.org/wiki/Germany"^^xsd:anyURI ;
+    rdfs:isDefinedBy EU: .
+## endregion MemberState Individuals    DE
+
+## region MemberState Individuals       FR
+<https://european-union.europa.eu/principles-countries-history/country-profiles/france_en>
+    a                EU:MemberState ;
+    rdfs:label       "France"@fr ;
+    rdfs:label       "France"@en ;
+    rdfs:label       "Frankreich"@de ;
+    skos:prefLabel   "la République française"^^xsd:string ;
+    EU:governance    "https://www.service-public.fr/"^^xsd:anyURI ;
+    rdfs:seeAlso     "https://www.france.fr/"^^xsd:anyURI ;
+    rdfs:seeAlso     "https://en.wikipedia.org/wiki/France"^^xsd:anyURI ;
+    rdfs:isDefinedBy EU: .
+## endregion MemberState Individuals    FR
+
+## endregion MemberState Individuals
+
+## endregion MemberState
+
+## region Directive
+##https://digital-strategy.ec.europa.eu/en/policies/cybersecurity
+
+EU:Regulation
+    a                owl:Class ;
+    rdfs:label       "Regulation"@en ;
+    rdfs:label       "Verordnung"@de ;
+    skos:notation    "Regulation"^^xsd:string ;
+    skos:prefLabel   "Regulation"^^xsd:string ;
+    rdfs:isDefinedBy EU: .
+
+EU:regulation
+    a                owl:ObjectProperty ;
+    rdfs:label       "Regulation"@en ;
+    rdfs:label       "Regulation"@de ;
+    skos:notation    "regulation"^^xsd:string ;
+    skos:prefLabel   "Regulation"^^xsd:string ;
+    rdfs:domain      EU: ;
+    rdfs:range       EU:Regulation ; ## CARD [0..n]
+    rdfs:isDefinedBy EU: .
+
+EU:Directive
+    a                owl:Class ;
+    rdfs:label       "Directive"@en ;
+    rdfs:label       "Direktive"@de ;
+    skos:notation    "Directive"^^xsd:string ;
+    skos:prefLabel   "Directive"^^xsd:string ;
+    rdfs:isDefinedBy EU: .
+
+EU:directive
+    a                owl:ObjectProperty ;
+    rdfs:label       "Directive"@en ;
+    rdfs:label       "Direktive"@de ;
+    skos:notation    "directive"^^xsd:string ;
+    skos:prefLabel   "Directive"^^xsd:string ;
+    rdfs:domain      EU: ;
+    rdfs:range       EU:Directive ; ## CARD [0..n]
+    rdfs:isDefinedBy EU: .
+
+EU:repeals
+    a                owl:ObjectProperty ;
+    rdfs:label       "Repeals"@en ;
+    rdfs:label       "Widerruft"@de ;
+    skos:notation    "repeals"^^xsd:string ;
+    skos:prefLabel   "Repeals"^^xsd:string ;
+    rdfs:domain      EU:Directive ;
+    rdfs:range       EU:Directive ; ## CARD [0..n]
+    rdfs:range       EU:Regulation ; ## CARD [0..n]
+    rdfs:isDefinedBy EU: .
+
+EU:amends
+    a                owl:ObjectProperty ;
+    rdfs:label       "Amends"@en ;
+    rdfs:label       "Ändert"@de ;
+    skos:notation    "amends"^^xsd:string ;
+    skos:prefLabel   "Amends"^^xsd:string ;
+    rdfs:domain      EU:Directive ;
+    rdfs:range       EU:Directive ; ## CARD [0..n]
+    rdfs:isDefinedBy EU: .
+
+## region Directive Individual
+
+EU:REGULATION_910-2014
+    a                EU:Regulation ;
+    rdfs:label       "REGULATION (EU) No 910/2014"@en ;
+    dct:description  """REGULATION (EU) No 910/2014 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL
+of 23 July 2014
+on electronic identification and trust services for electronic transactions in the internal market and
+repealing Directive 1999/93/EC""" ;
+    dct:issued       "2014-07-23"^^xsd:date ;
+    rdfs:seeAlso     "https://eur-lex.europa.eu/eli/reg/2014/910/oj"^^xsd:anyURI ;
+    rdfs:isDefinedBy EU:, EP: .
+
+EU:DIRECTIVE_2016-1148
+    a                EU:Directive ;
+    rdfs:label       "DIRECTIVE (EU) 2016/1148"@en ;
+    dct:description  """DIRECTIVE (EU) 2016/1148 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL
+of 6 July 2016
+concerning measures for a high common level of security of network and information systems across the Union"""@en ;
+    dct:issued       "2016-07-06"^^xsd:date ;
+    rdfs:seeAlso     "https://eur-lex.europa.eu/eli/dir/2016/1148/oj"^^xsd:anyURI ;
+    rdfs:isDefinedBy EU:, EP: .
+
+EU:DIRECTIVE_2018-1972
+    a                EU:Directive ;
+    rdfs:label       "DIRECTIVE (EU) 2018/1972"@en ;
+    dct:description  """Directive (EU) 2018/1972 of the European Parliament and of the Council
+of 11 December 2018
+establishing the European Electronic Communications Code (Recast)Text with EEA relevance."""@en ;
+    dct:issued       "2018-12-11"^^xsd:date ;
+    rdfs:seeAlso     "https://eur-lex.europa.eu/eli/dir/2018/1972/oj"^^xsd:anyURI ;
+    rdfs:isDefinedBy EU:, EP: .
+
+EU:DIRECTIVE_2022-2555
+    a                EU:Directive ;
+    rdfs:label       "DIRECTIVE (EU) 2022/2555 (NIS 2 Directive)"@en ;
+    dct:description  """DIRECTIVE (EU) 2022/2555 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL
+of 14 December 2022
+on measures for a high common level of cybersecurity across the Union, amending Regulation (EU)
+No 910/2014 and Directive (EU) 2018/1972, and repealing Directive (EU) 2016/1148 (NIS 2 Directive)"""@en ;
+    rdfs:comment     "EEA relevance"@en ;
+    dct:issued       "2022-12-14"^^xsd:date ;
+    EU:amends        EU:DIRECTIVE_2018-1972 ;
+    EU:amends        EU:REGULATION_910-2014 ;
+    EU:repeals       EU:DIRECTIVE_2016-1148 ;
+    rdfs:seeAlso     "https://eur-lex.europa.eu/eli/dir/2022/2555/oj"^^xsd:anyURI ;
+    rdfs:isDefinedBy EU:, EP: .
+
+## endregion Directive Individual
+
+## endregion Directive
+###############################
+
+EP:
+    a                     org:Organization ;
+    rdfs:label            "European Parliament"@en ;
+    rdfs:label            "Europäisches Parlament"@de ;
+    skos:prefLabel        "European Parliament"^^xsd:string ;
+    org:subOrganizationOf EU: ;
+    rdfs:isDefinedBy      EU: .
+
+<https://www.consilium.europa.eu/>
+    a                     org:Organization ;
+    rdfs:label            "European Parliament"@en ;
+    rdfs:label            "Europäisches Parlament"@de ;
+    skos:prefLabel        "European Parliament"^^xsd:string ;
+    org:subOrganizationOf EU: ;
+    rdfs:isDefinedBy      EU: .
+
+EC:
+    a                     org:Organization ;
+    rdfs:label            "European Commission"@en ;
+    rdfs:label            "Europäische Kommission"@de ;
+    skos:prefLabel        "European Commission"@en ;
+    skos:altLabel         "EC" ;
+    org:subOrganizationOf EU: ;
+    rdfs:isDefinedBy      EU: .

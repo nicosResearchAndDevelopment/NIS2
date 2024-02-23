@@ -1,0 +1,150 @@
+@prefix dc:              <http://purl.org/dc/elements/1.1/> .
+@prefix dct:             <http://purl.org/dc/terms/> .
+@prefix owl:             <http://www.w3.org/2002/07/owl#> .
+@prefix org:             <http://www.w3.org/ns/org#> .
+@prefix odrl:            <http://www.w3.org/ns/odrl/2/> .
+@prefix profile:         <http://www.w3.org/ns/dx/prof/> .
+@prefix rdfs:            <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role:            <http://www.w3.org/ns/dx/prof/role/> .
+@prefix skos:            <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:            <http://purl.org/vocab/vann/> .
+@prefix voaf:            <http://purl.org/vocommons/voaf#> .
+@prefix void:            <http://rdfs.org/ns/void#> .
+@prefix xsd:             <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix prov:            <http://www.w3.org/ns/prov#> .
+@prefix generatedAtTime: <http://www.w3.org/ns/prov#generatedAtTime> .
+
+@prefix lds:             <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix entity:          <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix nis2:            <https://github.com/nicosResearchAndDevelopment/NIS2/> .
+
+#@base <https://github.com/nicosResearchAndDevelopment/NIS2/protocol/fata#> .
+@prefix :                <https://github.com/nicosResearchAndDevelopment/NIS2/protocol/fata#> .
+@prefix fata:            <https://github.com/nicosResearchAndDevelopment/NIS2/protocol/fata#> .
+@prefix Note:            <https://github.com/nicosResearchAndDevelopment/NIS2/protocol/fata#Note> .
+@prefix note:            <https://github.com/nicosResearchAndDevelopment/NIS2/protocol/fata#note> .
+@prefix subject:         <https://github.com/nicosResearchAndDevelopment/NIS2/protocol/fata#subject> .
+@prefix message:         <https://github.com/nicosResearchAndDevelopment/NIS2/protocol/fata#message> .
+
+fata:
+    a                             voaf:Vocabulary ;
+    a                             owl:Ontology ;
+    skos:prefLabel                "From Agent To Agent (FATA)"^^xsd:string ;
+    rdfs:label                    "From Agent To Agent (FATA)"@en ;
+    dct:title                     "Model for FATA"@en ;
+    dct:description               """"""@en ;
+## TODO : cc:license                    <> ;
+    dct:creator                   <https://jlangkau.solidweb.org/> ;
+    dct:publisher                 <https://www.nicos-ag.com> ;
+    dct:created                   "2023-02-19"^^xsd:date ;
+    ## TODO: dct:modified                  {{now.date}} ;
+    owl:versionInfo               "1.0.0" ;
+    ## TODO: owl:versionInfo               {{version.ontology}} ;
+    vann:preferredNamespaceUri    "https://github.com/nicosResearchAndDevelopment/NIS2/protocol/fata#"^^xsd:anyURI ;
+    vann:preferredNamespacePrefix "fata:" ;
+    void:vocabulary               vann:, void:, voaf:, dct: ;
+    rdfs:isDefinedBy              <https://jlangkau.solidweb.org/> .
+
+#Envelope
+#    ## TODO: abstract
+#    a                owl:Class ;
+#    rdfs:label       "Envelop"@en ;
+#    rdfs:label       "Umschlag"@de ;
+#    skos:notation    "fata:Envelop"^^xsd:string ;
+#    skos:prefLabel   "Envelop"^^xsd:string ;
+#    rdfs:isDefinedBy fata: .
+#
+#:envelop
+#    a                owl:ObjectProperty ;
+#    rdfs:label       "Envelop"@en ;
+#    rdfs:label       "Umschlag"@de ;
+#    skos:notation    "fata:envelop"^^xsd:string ;
+#    skos:prefLabel   "Envelop"^^xsd:string ;
+#    rdfs:range       :Envelope ;
+#    rdfs:isDefinedBy nis2: .
+
+<Note>
+    a                owl:Class ;
+    rdfs:subClassOf  prov:Entity ;
+    rdfs:label       "Note"@en ;
+    rdfs:label       "Notiz"@de ;
+    skos:notation    "fata:Note"^^xsd:string ;
+    skos:prefLabel   "Note"^^xsd:string ;
+    rdfs:isDefinedBy fata: .
+
+<subject>
+    a                owl:ObjectProperty ;
+    rdfs:label       "Subject"@en ;
+    rdfs:label       "Subjekt"@de ;
+    skos:notation    "fata:subject"^^xsd:string ;
+    skos:prefLabel   "Subject"^^xsd:string ;
+    rdfs:domain      :Note ;
+    rdfs:range       xsd:string ;
+    rdfs:isDefinedBy fata: .
+
+<message>
+    a                owl:ObjectProperty ;
+    rdfs:label       "Message"@en ;
+    rdfs:label       "Nachricht"@de ;
+    skos:notation    "fata:message"^^xsd:string ;
+    skos:prefLabel   "Message"^^xsd:string ;
+    rdfs:domain      :Note ;
+    rdfs:range       xsd:string ;
+    rdfs:isDefinedBy fata: .
+
+<note>
+    a                owl:ObjectProperty ;
+    rdfs:label       "Note"@en ;
+    rdfs:label       "Notiz"@de ;
+    skos:notation    "fata:note"^^xsd:string ;
+    skos:prefLabel   "Notiz"^^xsd:string ;
+    rdfs:domain      :Envelope ;
+    rdfs:range       Note: ;
+    rdfs:isDefinedBy fata: .
+#
+#:Incident
+#    a                owl:Class ;
+#    rdfs:subClassOf  :Note ;
+#    rdfs:label       "Incident"@en ;
+#    rdfs:label       "Vorfall"@de ;
+#    skos:notation    "fata:Incident"^^xsd:string ;
+#    skos:prefLabel   "Incident"^^xsd:string ;
+#    rdfs:isDefinedBy fata: .
+#
+#:incident
+#    a                  owl:ObjectProperty ;
+#    rdfs:subPropertyOf :note ;
+#    rdfs:label         "Incident"@en ;
+#    rdfs:label         "Vorfall"@de ;
+#    skos:notation      "fata:incident"^^xsd:string ;
+#    skos:prefLabel     "Incident"^^xsd:string ;
+#    rdfs:domain        :Envelope ;
+#    rdfs:range         :Incident ;
+#    rdfs:isDefinedBy   fata: .
+#
+#:Alert
+#    a                owl:Class ;
+#    rdfs:subClassOf  :Note ;
+#    rdfs:label       "Alert"@en ;
+#    rdfs:label       "Alarm"@de ;
+#    skos:notation    "fata:Alert"^^xsd:string ;
+#    skos:prefLabel   "Alert"^^xsd:string ;
+#    rdfs:isDefinedBy fata: .
+#
+#:alert
+#    a                  owl:ObjectProperty ;
+#    rdfs:subPropertyOf :note ;
+#    rdfs:label         "Alert"@en ;
+#    rdfs:label         "Vorfall"@de ;
+#    skos:notation      "fata:alert"^^xsd:string ;
+#    skos:prefLabel     "Alert"^^xsd:string ;
+#    rdfs:domain        :Envelope ;
+#    rdfs:range         :Alert ;
+#    rdfs:isDefinedBy   fata: .
+
+<https:www.example.com/note/42-42-42-42>
+    a                <Note> ;
+    subject:         "Hello"^^xsd:string ;
+    message:         "World!"^^xsd:string ;
+    rdfs:isDefinedBy <https:www.example.com> .

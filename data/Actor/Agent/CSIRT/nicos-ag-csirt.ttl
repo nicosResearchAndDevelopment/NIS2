@@ -1,0 +1,67 @@
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix org:     <http://www.w3.org/ns/org#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix profile: <http://www.w3.org/ns/dx/prof/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role:    <http://www.w3.org/ns/dx/prof/role/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:     <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix entity:  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix nis2:     <https://github.com/nicosResearchAndDevelopment/NIS2/> .
+@prefix xnis2:    <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555/xnis2#> .
+
+<https://www.nicos-ag.com/>
+    a                      org:Organization ;
+    a                      entity:LegalEntity ;
+    rdfs:label             "nicos AG"^^xsd:string ;
+    org:hasSubOrganization <https://www.nicos-cdc.com/> ;
+    rdfs:isDefinedBy       <https://www.nicos-ag.com/> .
+
+<https://www.nicos-cdc.com/>
+    a                     org:Organization ;
+    a                     nis2:Agent ;
+    a                     entity:Entity ;
+    rdfs:label            "nicos cyber defense GmbH"^^xsd:string ;
+    org:subOrganizationOf <https://www.nicos-ag.com/> ;
+    org:hasUnit           <https://www.nicos-cdc.com/nCDC/> ;
+#    entity:actOnBehalf    <https://www.nicos-ag.com/> ;
+    xnis2:inbox            [ rdf:type  xsd:string ;
+                            rdf:value "contact@nicos-cdc.com" ; ] ;
+    rdfs:isDefinedBy      <https://www.nicos-ag.com/> .
+
+<https://www.nicos-cdc.com/nCDC/>
+    a                  org:OrganizationalUnit ;
+    a                  nis2:Agent ;
+    a                  entity:Entity ;
+    rdfs:label         "nicos cyber defense GmbH"^^xsd:string ;
+    org:unitOf         <https://www.nicos-cdc.com/> ;
+    entity:actOnBehalf <https://www.nicos-cdc.com/> ;
+    xnis2:inbox         [ rdf:type  xsd:string ;
+                         rdf:value "contact@nicos-cdc.com" ; ] ;
+    xnis2:inbox         "https://www.nicos-cdc.com/nCDC/inbox/index.html"^^xsd:anyURI ; ## REM: page+send
+    xnis2:inbox         <https://www.nicos-cdc.com/nCDC/inbox/> ;
+    xnis2:notifier      <https://www.nicos-cdc.com/nCDC/nis/notifier/> ;
+    rdfs:isDefinedBy   <https://www.nicos-cdc.com/> .
+
+<https://www.nicos-cdc.com/nCDC/inbox/index.html>
+    rdfs:isDefinedBy <https://www.nicos-cdc.com/nCDC/> .
+
+<https://www.nicos-cdc.com/nCDC/inbox/>
+    a                  entity:ServiceInstance ;
+    a                  prov:SoftwareAgent ;
+    a                  xnis2:Inbox ;
+    entity:actOnBehalf <https://www.nicos-cdc.com/nCDC/> ;
+    rdfs:isDefinedBy   <https://www.nicos-cdc.com/nCDC/> .
+
+<https://www.nicos-cdc.com/nCDC/nis/notifier/>
+    a                  entity:ServiceInstance ;
+    a                  prov:SoftwareAgent ;
+    a                  xnis2:Notifier ;
+    entity:actOnBehalf <https://www.nicos-cdc.com/> ;
+    rdfs:isDefinedBy   <https://www.nicos-cdc.com/nCDC/> .

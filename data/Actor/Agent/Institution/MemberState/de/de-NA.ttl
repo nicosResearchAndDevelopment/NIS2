@@ -1,0 +1,64 @@
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix org:     <http://www.w3.org/ns/org#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix profile: <http://www.w3.org/ns/dx/prof/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role:    <http://www.w3.org/ns/dx/prof/role/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix entity:  <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix nis2:     <https://github.com/nicosResearchAndDevelopment/NIS2/> .
+@prefix xnis2:    <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555/xnis2#> .
+
+<https://www.bsi.bund.de/>
+    a                  org:FormalOrganization ;
+    entity:actOnBehalf <https://www.deutschland.de/> ;
+    rdfs:label         "BSI"@en ;
+    org:hasUnit        <https://www.bsi.bund.de/nis2/> ;
+    rdfs:isDefinedBy   <https://www.bundesregierung.de/> .
+
+<https://www.bsi.bund.de/nis2/>
+    a                  org:OrganizationalUnit ;
+    a                  entity:Entity ;
+    a                  nis2:Agent ;
+    ## a                  nis2:Representative ; ## TODO: TBC: it is so?!?
+    rdfs:label         "NIS2"^^xsd:string ;
+    org:unitOf         <https://www.bsi.bund.de/> ;
+    entity:actOnBehalf <https://www.bsi.bund.de/> ;
+    xnis2:trustList     <https://www.bsi.bund.de/nis2/trustlist/> ;
+    xnis2:inbox         <https://www.bsi.bund.de/nis2/inbox/> ;
+    xnis2:inbox         [ rdf:type        xsd:string ;
+                         rdf:value       "vulnerability@bsi.bund.de" ;
+                         dct:description """PGP (Vulnerability)
+Please use the following PGP-Key for sending PGP-encrypted email to CERT-Bund:
+pub   rsa4096/22B1A37C249BD09C 2024-01-10 [SC] [expires: 2025-01-31]
+uid           CERT-Bund Vulnerability (2024) vulnerability@bsi.bund.de
+sub   rsa4096/EDDEDFEFEF2EE374 2024-01-10 [E] [expires: 2025-01-31]
+Key fingerprint: 61D3 243D 3080 3E4F 5EEA BADB 22B1 A37C 249B D09C""" ;
+                         rdfs:seeAlso    "https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Cyber-Sicherheitslage/Reaktion/CERT-Bund/Kontakt/kontakt_node.html"^^xsd:anyURI ; ] ;
+    rdfs:isDefinedBy   <https://www.bsi.bund.de/> .
+
+<https://www.bsi.bund.de/nis2/trustlist/>
+    a                xnis2:TrustList ;
+    nis2:agent        <https://www.nicos-cdc.com/nCDC/> ;                ## REM: as Organization
+    nis2:agent        <https://www.nicos-cdc.com/nCDC/inbox/> ;          ## REM: as Inbox
+    nis2:agent        <https://www.nicos-cdc.com/nCDC/nis/notifier/> ;   ## REM: as Notifier
+    rdfs:isDefinedBy <https://www.bsi.bund.de/> .
+
+<https://www.bsi.bund.de/nis2/inbox/>
+    a                  entity:ServiceInstance ;
+    a                  prov:SoftwareAgent ;
+    entity:actOnBehalf <https://www.bsi.bund.de/nis2/> ;
+    rdfs:isDefinedBy   <https://www.bsi.bund.de/> .
+
+<https://www.bsi.bund.de/nis2/notifier/>
+    a                  entity:ServiceInstance ;
+    a                  prov:SoftwareAgent ;
+    a                  xnis2:Notifier ;
+    entity:actOnBehalf <https://www.bsi.bund.de/nis2/> ;
+    rdfs:isDefinedBy   <https://www.bsi.bund.de/> .

@@ -1,0 +1,114 @@
+@prefix odrl:       <http://www.w3.org/ns/odrl/2/> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix prov:       <http://www.w3.org/ns/prov#> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lds:        <https://github.com/nicosResearchAndDevelopment/LDS/> .
+@prefix lds-cc:     <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/core/> .
+@prefix entity:     <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/entity/> .
+@prefix credential: <https://github.com/nicosResearchAndDevelopment/LDS/model/concept/higher/credential/> .
+@prefix nis2:        <https://github.com/nicosResearchAndDevelopment/NIS2/> .
+@prefix xnis2:       <https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022L2555/xnis2#> .
+
+## TODO:
+# A example:
+##
+
+## REM: the requested METHOD (here: PUT)
+<https://www.bsi.bund.de/nis2/inbox/PUT/>
+    a                odrl:Asset ;
+    odrl:hasPolicy   <https://www.bsi.bund.de/nis2/policy/access/inbox/METHOD/PUT/> ;
+    rdfs:isDefinedBy <https://www.bsi.bund.de/nis2/> .
+
+<https://www.bsi.bund.de/nis2/policy/access/inbox/METHOD/PUT/>
+    a                odrl:Policy ;
+    odrl:permission  [ a odrl:Permission ;
+        odrl:assigner    <https://www.bsi.bund.de/nis2/> ;
+        odrl:assignee    [ a               odrl:PartyCollection ;
+                           ## REM: a nis2:Agent
+                           ## REM: this will move to 'urn:user'/'urn:assignee' or whatever PDP needs...
+                           odrl:source     <https://www.nicos-cdc.com/nCDC/nis/notifier/> ;
+                           odrl:refinement [ a                 odrl:Constraint ;
+                                             odrl:leftOperand  rdf:type ;
+                                             odrl:operator     odrl:eq ;
+                                             odrl:rightOperand nis2:Agent ;
+                                             odrl:dataType     xsd:anyURI ; ],
+                                           ##
+                                           [ a                 odrl:Constraint ;
+                                             odrl:leftOperand  nis2:compliant ;
+                                             odrl:operator     odrl:isAnyOf ;
+                                             odrl:rightOperand nis2:Article-10-CSIRT-Compliance ;
+                                             odrl:dataType     xsd:anyURI ; ] ;
+                           ##
+                         ] ; ## odrl:assignee
+#        odrl:constraint  [ a odrl:Constraint ; ] ;
+        odrl:target      <https://www.bsi.bund.de/nis2/inbox/PUT/> ;
+        odrl:action      odrl:use ;
+        odrl:duty        [ odrl:action odrl:nextPolicy ;
+                           odrl:target <https://www.bsi.bund.de/nis2/policy/access/inbox/write/> ; ] ] ; ## odrl:permission
+    rdfs:isDefinedBy <https://www.bsi.bund.de/nis2/> .
+
+#########################################################################################################
+<https://www.bsi.bund.de/nis2/policy/assignee/refinement/write/>
+    a                odrl:PartyCollection ;
+    ## REM: a nis2:Agent
+    ## REM: this will move to 'urn:user'/'urn:assignee' or whatever PDP needs...
+    odrl:source      <https://www.nicos-cdc.com/nCDC/nis/notifier/> ;
+    odrl:refinement  [ a                 odrl:Constraint ;
+                       odrl:leftOperand  rdf:type ;
+                       odrl:operator     odrl:eq ;
+                       odrl:rightOperand nis2:Agent ;
+                       odrl:dataType     xsd:anyURI ; ],
+                     ##
+                     [ a                 odrl:Constraint ;
+                       odrl:leftOperand  nis2:compliant ;
+                       odrl:operator     odrl:isAnyOf ;
+                       odrl:rightOperand nis2:Article-10-CSIRT-Compliance ;
+                       odrl:dataType     xsd:anyURI ; ] ;
+    ##
+    rdfs:isDefinedBy <https://www.bsi.bund.de/nis2/> .
+
+#########################################################################################################
+
+<https://www.bsi.bund.de/nis2/policy/access/inbox/write/>
+    a                odrl:Policy ;
+    odrl:permission  [ a odrl:Permission ;
+        odrl:assigner    <https://www.bsi.bund.de/nis2/> ;
+        ## odrl:assignee    <https://www.bsi.bund.de/nis2/policy/assignee/refinement/write/> ;
+        odrl:assignee    [ a               odrl:PartyCollection ;
+                           ## REM: a nis2:Agent
+                           ## REM: this will move to 'urn:user'/'urn:assignee' or whatever PDP needs...
+                           odrl:source     <https://www.nicos-cdc.com/nCDC/nis/notifier/> ;
+                           odrl:refinement [ a                 odrl:Constraint ;
+                                             odrl:leftOperand  rdf:type ;
+                                             odrl:operator     odrl:eq ;
+                                             odrl:rightOperand nis2:Agent ;
+                                             odrl:dataType     xsd:anyURI ; ],
+                                           ##
+                                           [ a                 odrl:Constraint ;
+                                             odrl:leftOperand  nis2:compliant ;
+                                             odrl:operator     odrl:isAnyOf ;
+                                             odrl:rightOperand nis2:Article-10-CSIRT-Compliance ;
+                                             odrl:dataType     xsd:anyURI ; ] ;
+                           ##
+                         ] ; ## odrl:assignee
+#        odrl:constraint  [ a odrl:Constraint ; ] ;
+        odrl:target      [ a               odrl:AssetCollection ;
+                           ## REM: this will move to 'urn:asset'/'urn:source' or whatever PDP needs...
+                           odrl:source     <https://www.nicos-cdc.com/nCDC/nis/message/42-42-42-42> ;
+                           odrl:refinement [ a                 odrl:Constraint ;
+                                             odrl:leftOperand  nis2:sector ;
+                                             odrl:operator     odrl:eq ;
+                                             odrl:rightOperand nis2:Energy-Electricity_Sector ;
+                                             odrl:dataType     xsd:anyURI ; ]
+                           ##
+                         ] ;
+        odrl:action      odrl:use ; ] ; ## odrl:permission
+    rdfs:isDefinedBy <https://www.bsi.bund.de/nis2/> .
+
+<https://www.nicos-cdc.com/nCDC/nis/message/42-42-42-42>
+    nis2:sector       nis2:Energy-Electricity_Sector ;
+    rdfs:isDefinedBy <https://www.nicos-cdc.com/nCDC/> .
